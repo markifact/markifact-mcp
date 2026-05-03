@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "markifact": {
+      "serverUrl": "https://api.markifact.com/mcp"
+    }
+  }
+}

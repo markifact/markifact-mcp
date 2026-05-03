@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "markifact",
+  "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from Claude. 300+ operations with human-in-the-loop on every write.",
+  "owner": {
+    "name": "Markifact",
+    "email": "contact@markifact.com"
+  },
+  "metadata": {
+    "pluginRoot": ".",
+    "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from Claude. 300+ operations with human-in-the-loop on every write."
+  },
+  "plugins": [
+    {
+      "name": "markifact",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "Production performance marketing automation for Claude. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
+      "homepage": "https://www.markifact.com",
+      "repository": "https://github.com/markifact/markifact-mcp",
+      "license": "MIT",
+      "category": "marketing",
+      "tags": ["mcp", "claude-code", "claude-code-plugin", "marketing", "google-ads", "meta-ads", "facebook-ads", "ga4", "google-analytics", "dv360", "shopify", "hubspot", "linkedin-ads", "tiktok-ads", "marketing-automation", "performance-marketing", "ad-management", "media-buying", "agencies"],
+      "author": {
+        "name": "Markifact",
+        "email": "contact@markifact.com"
+      }
+    }
+  ]
+}

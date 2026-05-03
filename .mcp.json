@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "markifact": {
+      "type": "http",
+      "url": "https://api.markifact.com/mcp",
+      "auth": { "type": "oauth" }
+    }
+  }
+}
