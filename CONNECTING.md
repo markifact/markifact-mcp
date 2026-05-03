@@ -43,7 +43,7 @@ Once Markifact is added by your admin (or on Pro/Max plans where you can add it 
    - You'll be redirected to Markifact's login page.
    - Sign in with Google or email.
    - Authorize Markifact for the AI client.
-   - Link your platform accounts (Google Ads, Meta Ads, GA4, Shopify, HubSpot, etc.) at <https://www.markifact.com/connections>.
+   - Link your platform accounts (Google Ads, Meta Ads, GA4, Shopify, HubSpot, etc.) at <https://www.markifact.com/app/connections>.
 5. **You're done.** Claude redirects you back automatically.
 
 If you're already logged into Markifact, the browser usually completes the redirect with no further interaction.
@@ -128,7 +128,7 @@ Requires a **Pro, Business, or Enterprise plan**.
 3. Set the name to **Markifact** and paste the MCP Server URL: `https://api.markifact.com/mcp`
 4. Keep **Authentication** set to **OAuth**, then click **Create**.
 5. Sign in with your Markifact account when redirected.
-6. Link your ad platform accounts at <https://www.markifact.com/connections>.
+6. Link your ad platform accounts at <https://www.markifact.com/app/connections>.
 
 For Codex (terminal/desktop), see [docs/codex.md](docs/codex.md).
 
@@ -183,7 +183,7 @@ Install as a Gemini CLI extension:
 gemini extensions install github.com/markifact/markifact-mcp
 ```
 
-On first use, a browser window opens for OAuth. Complete sign-in and link your ad accounts at <https://www.markifact.com/connections>.
+On first use, a browser window opens for OAuth. Complete sign-in and link your ad accounts at <https://www.markifact.com/app/connections>.
 
 Available commands after install (same set as Claude Code):
 
@@ -222,7 +222,7 @@ Yes, Markifact requires an account. Free tier available at <https://www.markifac
 
 ### Do I need advertising accounts?
 
-Yes, you need active accounts on the platforms you want to manage. You can connect any combination at <https://www.markifact.com/connections>:
+Yes, you need active accounts on the platforms you want to manage. You can connect any combination at <https://www.markifact.com/app/connections>:
 
 - **Google Ads** account for Google Ads ops
 - **Meta Business** account for Meta / Facebook / Instagram ops
@@ -322,7 +322,7 @@ Your ad accounts and campaigns are owned by you, not by Markifact.
 
 - **Email:** <contact@markifact.com>
 - **Issues:** <https://github.com/markifact/markifact-mcp/issues>
-- **Reconnect platforms:** <https://www.markifact.com/connections>
+- **Reconnect platforms:** <https://www.markifact.com/app/connections>
 - **Status / website:** <https://www.markifact.com>
 
 ---
@@ -362,7 +362,7 @@ If reconnecting the connector doesn't fix it, your Markifact login session may h
 
 ### When does this NOT apply?
 
-These steps apply when **nothing** works. If some platforms work but one doesn't (e.g. Google Ads works but Meta returns auth errors), the MCP server is reachable. That's a platform-specific issue, so reconnect just that platform at <https://www.markifact.com/connections>.
+These steps apply when **nothing** works. If some platforms work but one doesn't (e.g. Google Ads works but Meta returns auth errors), the MCP server is reachable. That's a platform-specific issue, so reconnect just that platform at <https://www.markifact.com/app/connections>.
 
 ### Operation not found
 

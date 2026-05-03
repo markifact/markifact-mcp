@@ -40,7 +40,7 @@ Real prompts you can paste into Claude, ChatGPT, Cursor, or any connected client
 
 ## Install for your AI client
 
-All clients connect to the same MCP server. Sign up at [markifact.com](https://markifact.com) first to get free credits, then install for the client you use.
+All clients connect to the same MCP server. Sign up at [www.markifact.com](https://www.markifact.com) first to get free credits, then install for the client you use.
 
 | Client | One-line install |
 |--------|------------------|
@@ -96,7 +96,7 @@ The 300+ operations are exposed through a small meta-tool surface that AI client
 - We do not train on your customer data.
 - Meta app-reviewed.
 - Every write operation requires explicit user approval before execution.
-- Trust center: [markifact.com/trust-center](https://markifact.com/trust-center)
+- Trust center: [www.markifact.com/trust-center](https://www.markifact.com/trust-center)
 
 ## How it works
 
@@ -124,7 +124,7 @@ Your team already uses Claude or ChatGPT. Give them safe, controlled write acces
 
 ## Pricing
 
-Free tier available. Paid plans start at the Starter tier. See [markifact.com/pricing](https://markifact.com/pricing) for the full breakdown.
+Free tier available. Paid plans start at the Starter tier. See [www.markifact.com/pricing](https://www.markifact.com/pricing) for the full breakdown.
 
 ## Contributing
 
@@ -149,7 +149,7 @@ All four manifests (`plugin.json`, `marketplace.json`, `server.json`, `gemini-ex
 
 - Email: <contact@markifact.com>
 - Issues: <https://github.com/markifact/markifact-mcp/issues>
-- Reconnect platforms: <https://www.markifact.com/connections>
+- Reconnect platforms: <https://www.markifact.com/app/connections>
 
 ---
 

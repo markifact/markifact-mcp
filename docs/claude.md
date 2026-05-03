@@ -40,4 +40,4 @@ Restart Claude Desktop.
 ## Notes
 
 - Claude Desktop / Web does **not** load skills, slash commands or sub-agents from this repo. Only the MCP server is consumed. Use Claude Code for the full experience.
-- If a tool errors with auth, reconnect at <https://www.markifact.com/connections>.
+- If a tool errors with auth, reconnect at <https://www.markifact.com/app/connections>.

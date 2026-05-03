@@ -22,4 +22,4 @@ You can now enable the **Markifact** app in any chat.
 - ChatGPT consumes **only** the MCP server. Skills, sub-agents and slash commands from this repo do not apply.
 - For the richest experience (slash commands, agent persona, write-op safety enforcement), use Claude Code.
 - For Codex (terminal/desktop), see [codex.md](codex.md).
-- If a tool errors with auth, reconnect at <https://www.markifact.com/connections>.
+- If a tool errors with auth, reconnect at <https://www.markifact.com/app/connections>.

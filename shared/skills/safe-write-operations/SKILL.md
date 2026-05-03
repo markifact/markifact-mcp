@@ -38,6 +38,6 @@ The trigger is the **`requires_approval: true`** flag on the operation in the `f
 
 ## When `run_write_operation` errors
 
-- Auth error → user must reconnect at <https://www.markifact.com/connections>. Stop, don't retry.
+- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
 - Validation error → re-fetch the operation schema with `get_operation_inputs`, fix the payload, ask the user to confirm the corrected call before retrying.
 - Rate limit / quota → back off, do not retry in a loop.

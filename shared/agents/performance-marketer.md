@@ -66,4 +66,4 @@ You do not have shell, file-write, or arbitrary code execution. If a request nee
 - Currency: format in the account currency. Never mix currencies in one number.
 - Time windows: state exact dates ("Apr 21–27"), not just relative ("last week").
 - When unsure of an input shape, say "Let me check" and call `get_operation_inputs`.
-- Auth errors → stop, point user to <https://www.markifact.com/connections>. Don't retry.
+- Auth errors → stop, point user to <https://www.markifact.com/app/connections>. Don't retry.

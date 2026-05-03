@@ -26,7 +26,7 @@ User data is processed only when you connect the Markifact MCP server through yo
 ### Authentication Data
 
 - **OAuth Tokens** (Markifact + per-platform): access and refresh tokens issued via OAuth 2.1 with PKCE for Markifact, and per-platform tokens for Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads, Microsoft Ads, Snapchat, Pinterest, Reddit, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, etc.
-- **Account Identifiers**: ad account IDs (Google Ads CIDs, Meta ad account IDs, etc.) for the connections you authorize at <https://www.markifact.com/connections>.
+- **Account Identifiers**: ad account IDs (Google Ads CIDs, Meta ad account IDs, etc.) for the connections you authorize at <https://www.markifact.com/app/connections>.
 - **Session tokens** for the AI client's MCP session.
 
 ### Operation Data
@@ -69,7 +69,7 @@ We do not sell, rent, or trade your data. We share data only as follows:
 
 ### With ad platforms
 
-To execute the operations you request, the MCP server transmits the necessary parameters to the underlying APIs of the platforms you connected (Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads, etc.). Scope is limited to the OAuth permissions you granted at <https://www.markifact.com/connections>.
+To execute the operations you request, the MCP server transmits the necessary parameters to the underlying APIs of the platforms you connected (Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads, etc.). Scope is limited to the OAuth permissions you granted at <https://www.markifact.com/app/connections>.
 
 ### With service providers
 
@@ -112,7 +112,7 @@ To exercise any right, contact <contact@markifact.com>. We will respond within t
 
 You can revoke the MCP plugin's ability to act on your accounts at any time:
 
-- **Disconnect a platform** at <https://www.markifact.com/connections>. The corresponding OAuth tokens are revoked immediately.
+- **Disconnect a platform** at <https://www.markifact.com/app/connections>. The corresponding OAuth tokens are revoked immediately.
 - **Revoke at the platform** (also covered in [CONNECTING.md](CONNECTING.md)):
   - Google: <https://myaccount.google.com/permissions>
   - Meta (Facebook / Instagram / Threads): <https://www.facebook.com/settings?tab=business_tools>

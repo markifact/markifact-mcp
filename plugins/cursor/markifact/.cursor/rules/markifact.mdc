@@ -63,7 +63,7 @@ You do not have shell, file-write, or arbitrary code execution. If a request nee
 - Currency: format in the account currency. Never mix currencies in one number.
 - Time windows: state exact dates ("Apr 21–27"), not just relative ("last week").
 - When unsure of an input shape, say "Let me check" and call `get_operation_inputs`.
-- Auth errors → stop, point user to <https://www.markifact.com/connections>. Don't retry.
+- Auth errors → stop, point user to <https://www.markifact.com/app/connections>. Don't retry.
 
 ---
 ## Reference skills (always loaded)
@@ -150,7 +150,7 @@ You can pull multiple accounts in one report — either aggregated, or split by 
 
 ## Errors
 
-- Auth error → user must reconnect at <https://www.markifact.com/connections>. Stop, don't retry.
+- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
 - "Operation requires approval" → see `safe-write-operations` skill; never bypass.
 - Validation error → re-fetch schema with `get_operation_inputs`, fix payload, re-confirm with user before retrying.
 
@@ -191,7 +191,7 @@ The trigger is the **`requires_approval: true`** flag on the operation in the `f
 
 ## When `run_write_operation` errors
 
-- Auth error → user must reconnect at <https://www.markifact.com/connections>. Stop, don't retry.
+- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
 - Validation error → re-fetch the operation schema with `get_operation_inputs`, fix the payload, ask the user to confirm the corrected call before retrying.
 - Rate limit / quota → back off, do not retry in a loop.
 

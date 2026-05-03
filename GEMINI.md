@@ -55,4 +55,4 @@ Never delete unless the user said "delete". Never batch more than 5 writes witho
 - `/markifact:negative-keyword-sweep` *(write)* — add negatives at the right scope
 - `/markifact:diagnose-underperformer` *(read-only)* — structured decision-tree diagnosis
 
-If an MCP call returns an auth error, tell the user to reconnect at <https://www.markifact.com/connections>.
+If an MCP call returns an auth error, tell the user to reconnect at <https://www.markifact.com/app/connections>.

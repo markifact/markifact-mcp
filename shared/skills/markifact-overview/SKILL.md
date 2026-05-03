@@ -83,6 +83,6 @@ You can pull multiple accounts in one report — either aggregated, or split by 
 
 ## Errors
 
-- Auth error → user must reconnect at <https://www.markifact.com/connections>. Stop, don't retry.
+- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
 - "Operation requires approval" → see `safe-write-operations` skill; never bypass.
 - Validation error → re-fetch schema with `get_operation_inputs`, fix payload, re-confirm with user before retrying.
