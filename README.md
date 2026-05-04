@@ -66,6 +66,14 @@ All clients connect to the same MCP server. Sign up at [www.markifact.com](https
 
 Per-client guides live in [`docs/`](docs/).
 
+## Install skills via skills.sh
+
+Markifact's skills are also available through [skills.sh](https://skills.sh), which works across 50+ AI agents including Cursor, Codex, Cline, Copilot, Gemini, Windsurf, and more.
+
+```bash
+npx skills add markifact/markifact-mcp
+```
+
 ## What you get
 
 ### Pre-built workflows (slash commands)
