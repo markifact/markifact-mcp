@@ -6,20 +6,20 @@
 [![GitHub stars](https://img.shields.io/github/stars/markifact/markifact-mcp?style=social)](https://github.com/markifact/markifact-mcp/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/markifact/markifact-mcp)](https://github.com/markifact/markifact-mcp/commits/main)
 
-> Manage Google Ads, Meta Ads, GA4, Shopify, HubSpot and 20+ more platforms from Claude, ChatGPT, Cursor, or any AI client. 300+ operations. Human-in-the-loop on every write.
+> Manage Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360, GA4, BigQuery, Google Search Console, Google Business Profile, Google Merchant Center, Facebook, Instagram, LinkedIn, Shopify, HubSpot, Klaviyo, WhatsApp, Slack and more from Claude, ChatGPT, Cursor, or any AI client. 300+ operations. Human-in-the-loop on every write.
 
 ## What this does
 
-Markifact turns any AI client into a senior performance marketer with live access to your ad accounts. Ask it to audit wasted spend, launch a PMax campaign, rotate fatigued creative, or diagnose why a campaign stopped converting. It does the work, shows you the change, and waits for approval before anything goes live.
+Markifact turns any AI client into a senior performance marketer with live access to your ad accounts, analytics, storefronts, CRM, and messaging. Ask it to audit wasted spend, launch a PMax campaign, rotate fatigued creative, diagnose why a campaign stopped converting, query BigQuery, sync a Klaviyo audience, or DM a client on Slack. It does the work, shows you the change, and waits for approval before anything goes live.
 
-One install gives you a Google Ads MCP server, a Meta Ads MCP server, a GA4 MCP server, a Shopify MCP, and a HubSpot MCP behind a single OAuth flow.
+One install gives you a Google Ads MCP, Meta Ads MCP, TikTok Ads MCP, LinkedIn Ads MCP, Microsoft Ads MCP, Reddit Ads MCP, Pinterest Ads MCP, Snapchat Ads MCP, Amazon Ads MCP, DV360 MCP, GA4 MCP, BigQuery MCP, Google Search Console MCP, Google Business Profile MCP, Google Merchant Center MCP, Facebook MCP, Instagram MCP, LinkedIn MCP, Shopify MCP, HubSpot MCP, Klaviyo MCP, WhatsApp MCP, and Slack MCP behind a single OAuth flow.
 
 ## See it in action
 
 Real prompts you can paste into Claude, ChatGPT, Cursor, or any connected client:
 
 ```
-"Audit my Google Ads account from the last 30 days and find wasted spend over $500"
+"Create a Google Search campaign for our spring sale. $150/day, US + Canada, target 'running shoes' and related keywords, paused so I can review"
 ```
 
 ```
@@ -27,11 +27,11 @@ Real prompts you can paste into Claude, ChatGPT, Cursor, or any connected client
 ```
 
 ```
-"Why did campaign 'Brand-Search-US' stop converting last week? Walk me through it"
+"Audit my Google Ads account from the last 30 days and find wasted spend over $500"
 ```
 
 ```
-"Pull a week-over-week ROAS report across all my Meta ad accounts and flag anything in learning limited"
+"Pull the top 20 queries from Google Search Console for the last 28 days where impressions are up but CTR dropped, and suggest title tag rewrites"
 ```
 
 ```
@@ -73,13 +73,21 @@ Available as `@performance-marketer` in Claude Code, the agent is a senior opera
 
 ### 300+ live operations across every major platform
 
-Google Ads, Meta Ads (Facebook + Instagram), GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and more. One install, every account.
+**Paid media:** Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360.
+
+**Analytics & data:** GA4, BigQuery, Google Search Console, Google Merchant Center.
+
+**Organic & social:** Facebook, Instagram, LinkedIn, Google Business Profile.
+
+**E-commerce, CRM & messaging:** Shopify, HubSpot, Klaviyo, WhatsApp, Slack.
+
+One install, every account.
 
 ## Why Markifact
 
 ### One MCP, every platform
 
-Most ad MCP servers cover one platform. Markifact runs Google Ads, Meta Ads, GA4, DV360, Shopify, HubSpot, LinkedIn Ads, TikTok Ads, Google Maps, and 20+ more behind a single OAuth flow. One install, every account.
+Most ad MCP servers cover one platform. Markifact runs Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360, GA4, BigQuery, Google Search Console, Google Business Profile, Google Merchant Center, Facebook, Instagram, LinkedIn, Shopify, HubSpot, Klaviyo, WhatsApp, and Slack behind a single OAuth flow. One install, every account.
 
 ### Real writes, with safety rails
 
@@ -153,7 +161,7 @@ All four manifests (`plugin.json`, `marketplace.json`, `server.json`, `gemini-ex
 
 ---
 
-Markifact is the universal MCP server for performance marketing. It works with Claude Code, Claude Desktop, ChatGPT, Cursor, Codex, Windsurf, OpenClaw, and Gemini CLI. Use it as a Google Ads MCP server, Meta Ads MCP server, GA4 MCP server, Shopify MCP, or HubSpot MCP from any AI client.
+Markifact is the universal MCP server for performance marketing. It works with Claude Code, Claude Desktop, ChatGPT, Cursor, Codex, Windsurf, OpenClaw, and Gemini CLI. Use it as a Google Ads MCP, Meta Ads MCP, TikTok Ads MCP, LinkedIn Ads MCP, Microsoft Ads MCP, Reddit Ads MCP, Pinterest Ads MCP, Snapchat Ads MCP, Amazon Ads MCP, DV360 MCP, GA4 MCP, BigQuery MCP, Google Search Console MCP, Google Business Profile MCP, Google Merchant Center MCP, Facebook MCP, Instagram MCP, LinkedIn MCP, Shopify MCP, HubSpot MCP, Klaviyo MCP, WhatsApp MCP, or Slack MCP from any AI client.
 
 ## License
 
