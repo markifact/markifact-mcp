@@ -1,24 +1,50 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-  "name": "com.markifact/markifact",
-  "description": "Markifact remote MCP server — 300+ marketing operations across Google Ads, Meta Ads, GA4, DV360, Shopify, HubSpot and more.",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.markifact/mcp",
+  "title": "Markifact: AI Performance Marketing",
+  "description": "AI marketing agent for Google Ads, Meta, GA4, TikTok, LinkedIn, Shopify, HubSpot and more.",
   "version": "1.0.0",
-  "status": "active",
+  "websiteUrl": "https://markifact.com",
   "repository": {
     "url": "https://github.com/markifact/markifact-mcp",
     "source": "github"
   },
-  "websiteUrl": "https://www.markifact.com",
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://api.markifact.com/mcp",
+      "url": "https://api.markifact.com/mcp"
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "categories": [
+        "marketing",
+        "advertising",
+        "analytics",
+        "ecommerce",
+        "crm"
+      ],
+      "tags": [
+        "google-ads",
+        "meta-ads",
+        "ga4",
+        "tiktok-ads",
+        "linkedin-ads",
+        "shopify",
+        "hubspot",
+        "klaviyo",
+        "pmax"
+      ],
+      "license": "MIT",
+      "privacyPolicyUrl": "https://markifact.com/privacy",
+      "termsOfServiceUrl": "https://markifact.com/terms",
+      "supportContact": "contact@markifact.com",
       "authentication": {
         "type": "oauth2",
         "flow": "authorization_code",
-        "pkce_required": true,
-        "protected_resource_metadata": "https://api.markifact.com/.well-known/oauth-protected-resource"
+        "pkceRequired": true,
+        "protectedResourceMetadataUrl": "https://api.markifact.com/.well-known/oauth-protected-resource"
       }
     }
-  ]
+  }
 }
