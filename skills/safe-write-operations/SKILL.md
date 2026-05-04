@@ -6,7 +6,7 @@ user-invocable: false
 
 # Safe write operations
 
-Calls to `run_write_operation` against [Markifact](https://www.markifact.com)'s MCP server can **spend money, pause campaigns, change budgets, edit live creatives, send emails, or charge customers**. Treat every one as a production change.
+Calls to `run_write_operation` can **spend money, pause campaigns, change budgets, edit live creatives, send emails, or charge customers**. Treat every one as a production change.
 
 ## When this protocol applies
 
