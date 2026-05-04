@@ -16,3 +16,5 @@ coverage/
 markifact.zip
 
 .claude/
+registry-key.pem
+mcp-registry-auth
