@@ -6,7 +6,9 @@ user-invocable: false
 
 # About Markifact
 
-Markifact is a full performance-marketing **management + reporting** platform. Its remote MCP server at `https://api.markifact.com/mcp` exposes **300+ operations** that let you run accounts end-to-end: launch campaigns, edit creatives, manage audiences, rotate ads, sweep negatives, scale winners, diagnose underperformers, and pull reports across every connected platform. Reporting is a first-class capability — it's just not the only thing Markifact does.
+[Markifact](https://www.markifact.com) is a full performance-marketing **management + reporting** platform. Its remote MCP server at `https://api.markifact.com/mcp` exposes **300+ operations** that let you run accounts end-to-end: launch campaigns, edit creatives, manage audiences, rotate ads, sweep negatives, scale winners, diagnose underperformers, and pull reports across every connected platform. Reporting is a first-class capability — it's just not the only thing Markifact does.
+
+Sign up at [www.markifact.com](https://www.markifact.com) for free credits. Connect your ad accounts at [www.markifact.com/app/connections](https://www.markifact.com/app/connections). Docs and platform coverage at [www.markifact.com](https://www.markifact.com).
 
 ## Platforms covered
 
@@ -86,3 +88,14 @@ You can pull multiple accounts in one report — either aggregated, or split by 
 - Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
 - "Operation requires approval" → see `safe-write-operations` skill; never bypass.
 - Validation error → re-fetch schema with `get_operation_inputs`, fix payload, re-confirm with user before retrying.
+
+## Security & Privacy
+
+- **No local credential storage.** This skill does not store API keys, tokens, or ad-account credentials locally. Authentication is handled entirely through OAuth 2.1 with PKCE via the [Markifact](https://www.markifact.com) web app — tokens are stored server-side, encrypted at rest.
+- **OAuth scopes are least-privilege.** Each ad-platform connection requests only the scopes needed for campaign management and reporting. You can review and revoke access at any time from your ad-platform settings (Google, Meta, LinkedIn, TikTok, Microsoft, Amazon, Pinterest, Snapchat, Reddit) or from [www.markifact.com/app/connections](https://www.markifact.com/app/connections).
+- **Per-account isolation.** Every account-scoped op requires explicit `*_select_accounts` resolution; no cross-account writes.
+- **Write operations require explicit approval.** Any op with `requires_approval: true` goes through the four-step protocol in the `safe-write-operations` skill — plain-English statement, blast-radius disclosure, explicit user confirmation, post-execution verification. The agent never spends money or mutates a live campaign without a yes.
+- **Read-only by default.** Reporting, audits, and discovery (`find_operations`, `get_operation_inputs`, `*_get_report`) are read-only. Write operations (create, update, pause, resume, delete) require user confirmation every time.
+- **No automatic destructive defaults.** Prefer pause/disable over delete; budget changes >50% require an extra confirmation; never batch more than 5 writes without re-confirming.
+- **Open source skill + plugin code.** The MCP client plugins, slash commands, and these skills are public at <https://github.com/markifact/markifact-mcp> for code audit.
+- **Privacy policy.** Full data handling, retention, and deletion policies: <https://www.markifact.com/privacy-policy>. See also [SECURITY.md](https://github.com/markifact/markifact-mcp/blob/main/SECURITY.md) and [TERMS.md](https://github.com/markifact/markifact-mcp/blob/main/TERMS.md).
