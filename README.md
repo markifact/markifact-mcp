@@ -12,7 +12,18 @@
 
 Markifact turns any AI client into a senior performance marketer with live access to your ad accounts, analytics, storefronts, CRM, and messaging. Ask it to audit wasted spend, launch a PMax campaign, rotate fatigued creative, diagnose why a campaign stopped converting, query BigQuery, sync a Klaviyo audience, or DM a client on Slack. It does the work, shows you the change, and waits for approval before anything goes live.
 
-One install gives you a Google Ads MCP, Meta Ads MCP, TikTok Ads MCP, LinkedIn Ads MCP, Microsoft Ads MCP, Reddit Ads MCP, Pinterest Ads MCP, Snapchat Ads MCP, Amazon Ads MCP, DV360 MCP, GA4 MCP, BigQuery MCP, Google Search Console MCP, Google Business Profile MCP, Google Merchant Center MCP, Facebook MCP, Instagram MCP, LinkedIn MCP, Shopify MCP, HubSpot MCP, Klaviyo MCP, WhatsApp MCP, and Slack MCP behind a single OAuth flow.
+One install, every account — behind a single OAuth flow.
+
+## Supported platforms
+
+300+ live operations across every major platform.
+
+| Category | Platforms |
+|----------|-----------|
+| **Paid media** | Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360 |
+| **Analytics & data** | GA4, BigQuery, Google Search Console, Google Merchant Center |
+| **Organic & social** | Facebook, Instagram, LinkedIn, Google Business Profile |
+| **E-commerce, CRM & messaging** | Shopify, HubSpot, Klaviyo, WhatsApp, Slack |
 
 ## See it in action
 
@@ -73,15 +84,7 @@ Available as `@performance-marketer` in Claude Code, the agent is a senior opera
 
 ### 300+ live operations across every major platform
 
-**Paid media:** Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360.
-
-**Analytics & data:** GA4, BigQuery, Google Search Console, Google Merchant Center.
-
-**Organic & social:** Facebook, Instagram, LinkedIn, Google Business Profile.
-
-**E-commerce, CRM & messaging:** Shopify, HubSpot, Klaviyo, WhatsApp, Slack.
-
-One install, every account.
+See the [Supported platforms](#supported-platforms) table above for the full list. One install, every account.
 
 ## Why Markifact
 
