@@ -1,6 +1,6 @@
 {
   "name": "markifact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Performance marketing automation across Google Ads, Meta Ads, GA4, Shopify and more via Markifact's remote MCP server.",
   "mcpServers": {
     "markifact": {
