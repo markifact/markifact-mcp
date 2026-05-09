@@ -3,7 +3,7 @@
   "name": "com.markifact/mcp",
   "title": "Markifact: AI Performance Marketing",
   "description": "AI marketing agent for Google Ads, Meta, GA4, TikTok, LinkedIn, Shopify, HubSpot and more.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://markifact.com",
   "repository": {
     "url": "https://github.com/markifact/markifact-mcp",

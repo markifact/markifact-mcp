@@ -1,7 +1,7 @@
 {
   "name": "markifact",
   "displayName": "Markifact — Performance Marketing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Production performance marketing automation for OpenClaw. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
   "icon": "./.claude-plugin/icon.png",
   "author": {
