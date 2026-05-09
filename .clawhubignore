@@ -1,7 +1,6 @@
 # Secrets — never publish
 registry-key.pem
 mcp-registry-auth
-.mcp.json
 
 # OS junk
 .DS_Store
