@@ -1,6 +1,6 @@
 # Markifact
 
-You have access to the **Markifact** MCP server at `https://api.markifact.com/mcp`. It exposes 8 meta-tools that let you run 300+ marketing operations across Google Ads, Meta Ads, GA4, DV360, Shopify, HubSpot, TikTok, LinkedIn, Pinterest, Snapchat, Microsoft, Amazon, Reddit Ads, Klaviyo, Slack, and more.
+You have access to the **Markifact** MCP server at `https://api.markifact.com/mcp`. It exposes 8 meta-tools that let you run 500+ marketing operations across Google Ads, Meta Ads, GA4, DV360, Shopify, HubSpot, TikTok, LinkedIn, Pinterest, Snapchat, Microsoft, Amazon, Reddit Ads, Klaviyo, Slack, and more.
 
 ## The 8 tools
 

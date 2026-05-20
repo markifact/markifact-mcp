@@ -1,6 +1,6 @@
 # Connecting to Markifact
 
-Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 10+ more**: 300+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
+Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 10+ more**: 500+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
 
 ## Quick Links
 
@@ -12,6 +12,7 @@ Markifact connects AI assistants to your ad platforms and analytics across **Goo
 - [Connecting to OpenAI Codex](#openai-codex)
 - [Connecting to Windsurf](#windsurf)
 - [Connecting to Gemini CLI](#gemini-cli)
+- [Connecting to Antigravity](#antigravity)
 - [Recommended permission settings](#recommended-permission-settings)
 - [FAQ](#faq)
 - [Troubleshooting](#troubleshooting)
@@ -195,6 +196,12 @@ Available commands after install (same set as Claude Code):
 - `/markifact:negative-keyword-sweep`
 - `/markifact:diagnose-underperformer`
 
+### Antigravity
+
+See [docs/antigravity.md](docs/antigravity.md) for the full install steps.
+
+Antigravity currently reads Gemini's MCP config file and uses a command-based `mcp-remote` entry with a Markifact bearer token.
+
 ---
 
 ## Recommended permission settings
@@ -247,14 +254,15 @@ Any MCP-compatible client. Tested and supported:
 - **OpenAI Codex**
 - **Windsurf**
 - **Gemini CLI**: extension with namespaced commands
+- **Antigravity**
 
 ### What tools and operations are available?
 
-The MCP server exposes a small **8-tool meta-surface** that your AI client uses to navigate **300+ operations** at runtime:
+The MCP server exposes a small **8-tool meta-surface** that your AI client uses to navigate **500+ operations** at runtime:
 
 | Tool | Purpose |
 |------|---------|
-| `find_operations` | Search 300+ ops by intent. Returns each op's `requires_approval` flag. |
+| `find_operations` | Search 500+ ops by intent. Returns each op's `requires_approval` flag. |
 | `get_operation_inputs` | Get the full input schema for an op. |
 | `run_operation` | Execute an op where `requires_approval: false`. |
 | `run_write_operation` | Execute an op where `requires_approval: true`, after explicit user approval. |

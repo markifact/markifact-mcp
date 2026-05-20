@@ -42,7 +42,7 @@ Markifact exposes only **8 tools**, not one tool per platform operation:
 
 | Tool | Purpose |
 |------|---------|
-| `find_operations` | Search the registry of 300+ ops by intent. |
+| `find_operations` | Search the registry of 500+ ops by intent. |
 | `get_operation_inputs` | Schema for a chosen op. |
 | `run_operation` | Execute a read-only op. |
 | `run_write_operation` | Execute a destructive op. |

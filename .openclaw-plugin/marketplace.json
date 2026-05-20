@@ -1,14 +1,14 @@
 {
   "$schema": "https://documentation.openclaw.ai/schemas/marketplace.json",
   "name": "markifact",
-  "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from OpenClaw. 300+ operations with human-in-the-loop on every write.",
+  "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from OpenClaw. 500+ operations with human-in-the-loop on every write.",
   "owner": {
     "name": "Markifact",
     "email": "contact@markifact.com"
   },
   "metadata": {
     "pluginRoot": ".",
-    "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from OpenClaw. 300+ operations with human-in-the-loop on every write."
+    "description": "Run Google Ads, Meta Ads, GA4, Shopify, and 20+ more platforms from OpenClaw. 500+ operations with human-in-the-loop on every write."
   },
   "plugins": [
     {
