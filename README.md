@@ -12,7 +12,7 @@
 
 Markifact turns any AI client into a senior performance marketer with live access to your ad accounts, analytics, storefronts, CRM, and messaging. Ask it to audit wasted spend, launch a PMax campaign, rotate fatigued creative, diagnose why a campaign stopped converting, query BigQuery, sync a Klaviyo audience, or DM a client on Slack. It does the work, shows you the change, and waits for approval before anything goes live.
 
-One install, every account — behind a single OAuth flow.
+One install, every account, behind a single OAuth flow.
 
 ## Supported platforms
 
@@ -24,6 +24,14 @@ One install, every account — behind a single OAuth flow.
 | **Analytics & data** | GA4, BigQuery, Google Search Console, Google Merchant Center |
 | **Organic & social** | Facebook, Instagram, LinkedIn, Google Business Profile |
 | **E-commerce, CRM & messaging** | Shopify, HubSpot, Klaviyo, WhatsApp, Slack |
+
+### Google Ads MCP
+
+Full read and write coverage of the Google Ads API: reporting across campaigns, ad groups, ads, keywords, search terms, assets, and conversions; campaign creation (Search, Performance Max, Display, Shopping, Demand Gen); budgets, bidding, and negative keyword management. No developer token, Google Cloud project, or local server required, unlike Google's official read-only MCP. Setup guide: [markifact.com/google-ads-mcp](https://www.markifact.com/google-ads-mcp)
+
+### Meta Ads MCP (Facebook & Instagram)
+
+Create campaigns, ad sets, and single image, video, carousel, and catalog creatives; pull performance with placement, device, and demographic breakdowns; manage custom and lookalike audiences; diagnose Pixel and Conversions API setup. Markifact is an approved Meta tech provider. Setup guide: [markifact.com/meta-ads-mcp](https://www.markifact.com/meta-ads-mcp)
 
 ## See it in action
 
