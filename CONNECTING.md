@@ -1,6 +1,6 @@
 # Connecting to Markifact
 
-Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 10+ more**: 500+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
+Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 10+ more**: 1000+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
 
 ## Quick Links
 
@@ -258,11 +258,11 @@ Any MCP-compatible client. Tested and supported:
 
 ### What tools and operations are available?
 
-The MCP server exposes a small **8-tool meta-surface** that your AI client uses to navigate **500+ operations** at runtime:
+The MCP server exposes a small **8-tool meta-surface** that your AI client uses to navigate **1000+ operations** at runtime:
 
 | Tool | Purpose |
 |------|---------|
-| `find_operations` | Search 500+ ops by intent. Returns each op's `requires_approval` flag. |
+| `find_operations` | Search 1000+ ops by intent. Returns each op's `requires_approval` flag. |
 | `get_operation_inputs` | Get the full input schema for an op. |
 | `run_operation` | Execute an op where `requires_approval: false`. |
 | `run_write_operation` | Execute an op where `requires_approval: true`, after explicit user approval. |

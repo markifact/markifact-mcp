@@ -6,7 +6,7 @@ user-invocable: false
 
 # About Markifact
 
-[Markifact](https://www.markifact.com) is a full performance-marketing **management + reporting** platform. Its remote MCP server at `https://api.markifact.com/mcp` exposes **500+ operations** that let you run accounts end-to-end: launch campaigns, edit creatives, manage audiences, rotate ads, sweep negatives, scale winners, diagnose underperformers, and pull reports across every connected platform. Reporting is a first-class capability — it's just not the only thing Markifact does.
+[Markifact](https://www.markifact.com) is a full performance-marketing **management + reporting** platform. Its remote MCP server at `https://api.markifact.com/mcp` exposes **1000+ operations** that let you run accounts end-to-end: launch campaigns, edit creatives, manage audiences, rotate ads, sweep negatives, scale winners, diagnose underperformers, and pull reports across every connected platform. Reporting is a first-class capability — it's just not the only thing Markifact does.
 
 Sign up at [www.markifact.com](https://www.markifact.com) for free credits. Connect your ad accounts at [www.markifact.com/app/connections](https://www.markifact.com/app/connections). Docs and platform coverage at [www.markifact.com](https://www.markifact.com).
 

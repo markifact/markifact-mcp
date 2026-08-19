@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/markifact/markifact-mcp?style=social)](https://github.com/markifact/markifact-mcp/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/markifact/markifact-mcp)](https://github.com/markifact/markifact-mcp/commits/main)
 
-> Manage Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360, GA4, BigQuery, Google Search Console, Google Business Profile, Google Merchant Center, Facebook, Instagram, LinkedIn, Shopify, HubSpot, Klaviyo, WhatsApp, Slack and more from Claude, ChatGPT, Cursor, or any AI client. 500+ operations. Human-in-the-loop on every write.
+> Manage Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Microsoft Ads, Reddit Ads, Pinterest Ads, Snapchat Ads, Amazon Ads, DV360, GA4, BigQuery, Google Search Console, Google Business Profile, Google Merchant Center, Facebook, Instagram, LinkedIn, Shopify, HubSpot, Klaviyo, WhatsApp, Slack and more from Claude, ChatGPT, Cursor, or any AI client. 1000+ operations. Human-in-the-loop on every write.
 
 ## What this does
 
@@ -16,7 +16,7 @@ One install, every account, behind a single OAuth flow.
 
 ## Supported platforms
 
-500+ live operations across every major platform.
+1000+ live operations across every major platform.
 
 | Category | Platforms |
 |----------|-----------|
@@ -99,7 +99,7 @@ npx skills add markifact/markifact-mcp
 
 Available as `@performance-marketer` in Claude Code, the agent is a senior operator with full read and write access to every connected platform. It can audit accounts, build full-funnel campaigns, debug performance drops, rotate creative, and pull reports. Every write goes through a four-step safety protocol so nothing destructive happens without your explicit approval.
 
-### 500+ live operations across every major platform
+### 1000+ live operations across every major platform
 
 See the [Supported platforms](#supported-platforms) table above for the full list. One install, every account.
 
@@ -115,7 +115,7 @@ Read-only MCPs are useful for reports. Markifact creates campaigns, edits creati
 
 ### Built for AI clients, not for engineers
 
-The 500+ operations are exposed through a small meta-tool surface that AI clients can navigate at runtime. No hardcoded tool list to drift. No context bloat. Your AI finds the right operation, fetches its schema, and runs it cleanly.
+The 1000+ operations are exposed through a small meta-tool surface that AI clients can navigate at runtime. No hardcoded tool list to drift. No context bloat. Your AI finds the right operation, fetches its schema, and runs it cleanly.
 
 ## Trust and security
 
@@ -128,7 +128,7 @@ The 500+ operations are exposed through a small meta-tool surface that AI client
 
 ## How it works
 
-Markifact's MCP server exposes a small set of meta-tools that your AI client uses to navigate 500+ operations at runtime. The pattern is always the same:
+Markifact's MCP server exposes a small set of meta-tools that your AI client uses to navigate 1000+ operations at runtime. The pattern is always the same:
 
 1. **Discover** the right operation by intent.
 2. **Inspect** its input schema.
