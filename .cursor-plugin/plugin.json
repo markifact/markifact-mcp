@@ -1,0 +1,65 @@
+{
+  "name": "markifact",
+  "displayName": "Markifact",
+  "version": "1.0.2",
+  "description": "Run Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4, Shopify, HubSpot and 20+ more platforms from Cursor. Audit spend, launch campaigns, rotate creative, and pull reporting, with approval required before anything goes live.",
+  "author": {
+    "name": "Markifact",
+    "email": "contact@markifact.com"
+  },
+  "publisher": "Markifact",
+  "homepage": "https://www.markifact.com",
+  "repository": "https://github.com/markifact/markifact-mcp",
+  "license": "MIT",
+  "logo": "assets/icon.png",
+  "keywords": [
+    "markifact",
+    "marketing",
+    "advertising",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads",
+    "ga4",
+    "shopify",
+    "hubspot",
+    "performance marketing",
+    "campaign management",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": [
+    "marketing",
+    "advertising",
+    "analytics",
+    "campaigns",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "rules": "./rules/",
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "default_account_label": {
+        "type": "string",
+        "title": "Default account label",
+        "description": "Optional. A short label (e.g. \"Acme US\") that the agent should assume when you don't specify which connection to use. Leave empty to be asked every time."
+      },
+      "preferred_currency": {
+        "type": "string",
+        "title": "Preferred currency",
+        "description": "Optional ISO currency code (e.g. USD, EUR, GBP) used when summarising spend and revenue.",
+        "pattern": "^[A-Z]{3}$",
+        "default": "USD"
+      },
+      "default_platforms": {
+        "type": "string",
+        "title": "Default platforms",
+        "description": "Comma-separated list of platforms you actively manage (e.g. \"google_ads,meta_ads,ga4\"). The agent will prioritize these when discovering operations. Leave empty to consider all connected platforms."
+      }
+    }
+  }
+}

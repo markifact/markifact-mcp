@@ -64,9 +64,9 @@ All clients connect to the same MCP server. Sign up at [www.markifact.com](https
 | Client | One-line install |
 |--------|------------------|
 | **Claude Code** | `claude plugin marketplace add markifact/markifact-mcp` then `/plugin install markifact@markifact` |
-| **ChatGPT** (Pro / Business / Enterprise) | Settings → Apps → enable Developer mode → Create app → paste `https://api.markifact.com/mcp` |
-| **Claude Desktop & Web** | In any chat, click **+** → Add custom connector → URL: `https://api.markifact.com/mcp` |
-| **Cursor** | `curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/install.sh \| bash` |
+| **ChatGPT** | Open the approved [Markifact plugin](https://chatgpt.com/plugins/plugin_asdk_app_69e795096e888191b3908a4dd48a323d), or search **Markifact** in Settings → Apps |
+| **Claude Desktop & Web** | Add it from the [Claude connector directory](https://claude.ai/directory/markifact), or search **Markifact** in Settings → Connectors |
+| **Cursor** | Settings → Plugins → search **Markifact** → Install. Or script: `curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/install.sh \| bash` |
 | **Codex CLI** | `curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/codex/markifact/install.sh \| bash` |
 | **Windsurf** | See [docs/windsurf.md](docs/windsurf.md) |
 | **Gemini CLI** | `gemini extensions install github.com/markifact/markifact-mcp` |
@@ -156,7 +156,7 @@ Free tier available. Paid plans start at the Starter tier. See [www.markifact.co
 
 ## Contributing
 
-The source-of-truth lives in [`shared/`](shared/) (`shared/commands/`, `shared/skills/`, `shared/agents/`). Per-client surfaces (`commands/`, `skills/`, `agents/`, `gemini/commands/`, `plugins/cursor/.cursor/rules/`, `plugins/codex/AGENTS.md`) are **generated**. Never edit them directly. Run:
+The source-of-truth lives in [`shared/`](shared/) (`shared/commands/`, `shared/skills/`, `shared/agents/`). Per-client surfaces (`commands/`, `skills/`, `agents/`, `gemini/commands/`, `rules/`, `plugins/codex/AGENTS.md`) are **generated**. Never edit them directly. Run:
 
 ```bash
 ./scripts/sync-skills.sh

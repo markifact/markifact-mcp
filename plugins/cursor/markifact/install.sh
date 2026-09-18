@@ -40,7 +40,7 @@ fi
 
 # --- 2. Rules file ---
 echo "→ Installing performance-marketer rules into $RULES_DIR/markifact.mdc"
-curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/.cursor/rules/markifact.mdc \
+curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/rules/markifact.mdc \
   -o "$RULES_DIR/markifact.mdc"
 
 echo

@@ -30,10 +30,11 @@ Each AI client gets a manifest pointing at that URL:
 |--------|----------|
 | Claude Code | `.mcp.json` (referenced by `.claude-plugin/plugin.json`) |
 | Gemini CLI | `gemini-extension.json` |
-| Cursor | `plugins/cursor/markifact/.cursor/mcp.json` (created by install script) |
+| Cursor | `mcp.json` (referenced by `.cursor-plugin/plugin.json`); script install writes `~/.cursor/mcp.json` |
 | Codex CLI | `~/.codex/config.toml` (merged by install script) |
 | Windsurf | `~/.codeium/windsurf/mcp_config.json` (manual) |
-| Claude Desktop / ChatGPT | UI-configured custom connector |
+| Claude Desktop / Web | Listed connector ([directory](https://claude.ai/directory/markifact)); custom connector as fallback |
+| ChatGPT | Approved plugin ([listing](https://chatgpt.com/plugins/plugin_asdk_app_69e795096e888191b3908a4dd48a323d)); Developer mode app as fallback |
 | MCP Registry | `server.json` |
 
 ## Meta-tool surface

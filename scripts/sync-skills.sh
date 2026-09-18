@@ -11,7 +11,7 @@
 #   skills/<name>/SKILL.md             (Claude Code  — model-invocable skills)
 #   agents/<name>.md                   (Claude Code  — sub-agents)
 #   gemini/commands/markifact/*.toml   (Gemini CLI   — slash commands as TOML)
-#   plugins/cursor/markifact/.cursor/rules/markifact.mdc  (Cursor — single bundled rules file)
+#   rules/markifact.mdc  (Cursor — single bundled rules file)
 #   plugins/codex/markifact/AGENTS.md  (Codex CLI    — single concatenated prompt)
 #
 # Run from repo root:  ./scripts/sync-skills.sh
@@ -27,7 +27,7 @@ if [[ "${1:-}" == "--check" ]]; then
   CHECK_MODE=1
 fi
 
-OUT_PATHS=(commands skills agents gemini/commands/markifact plugins/cursor/markifact/.cursor/rules plugins/codex/markifact/AGENTS.md)
+OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/codex/markifact/AGENTS.md)
 
 # Capture pre-state for --check
 if [[ $CHECK_MODE -eq 1 ]]; then
@@ -36,10 +36,10 @@ fi
 
 # --- Clean output dirs (don't touch the input shared/ tree) -----------------
 rm -rf commands skills agents gemini/commands/markifact \
-       plugins/cursor/markifact/.cursor/rules \
+       rules \
        plugins/codex/markifact/AGENTS.md
 mkdir -p commands skills agents gemini/commands/markifact \
-         plugins/cursor/markifact/.cursor/rules
+         rules
 
 # --- 1. Claude Code slash commands (identity copy) -------------------------
 for src in shared/commands/*.md; do
@@ -105,8 +105,8 @@ EOF
     awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$src"
     echo
   done
-} > plugins/cursor/markifact/.cursor/rules/markifact.mdc
-echo "✓ Cursor rules         → plugins/cursor/markifact/.cursor/rules/markifact.mdc"
+} > rules/markifact.mdc
+echo "✓ Cursor rules         → rules/markifact.mdc"
 
 # --- 6. Codex AGENTS.md (concatenated prompt) ------------------------------
 {

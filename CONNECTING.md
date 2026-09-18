@@ -33,11 +33,13 @@ OAuth 2.1 with PKCE, dynamic client registration (RFC 7591). No API keys.
 
 **Your Anthropic admin must add Markifact as an organization integration before you can connect it on Team or Enterprise plans.** If you don't see Markifact in your list of connectors, ask your admin to add it. [Admin instructions below.](#add-markifact-as-an-organizational-custom-connector-claude-owners)
 
+Markifact is listed in Claude's official connector directory: <https://claude.ai/directory/markifact>. On Pro and Max plans you can add it straight from there.
+
 ### End user authentication
 
 Once Markifact is added by your admin (or on Pro/Max plans where you can add it yourself):
 
-1. **Start a new Claude chat** (https://claude.ai/new).
+1. **Open the directory listing** (<https://claude.ai/directory/markifact>) or **start a new Claude chat** (https://claude.ai/new).
 2. **Click "Connect apps"** at the bottom right of the input.
 3. **Scroll down and click "Connect"** next to Markifact.
 4. **Authorize via OAuth 2.1:**
@@ -122,14 +124,20 @@ claude mcp add --transport http markifact https://api.markifact.com/mcp
 
 ### ChatGPT
 
-Requires a **Pro, Business, or Enterprise plan**.
+Markifact is an approved ChatGPT plugin.
+
+1. Open the Markifact plugin: <https://chatgpt.com/plugins/plugin_asdk_app_69e795096e888191b3908a4dd48a323d>
+   (or open ChatGPT → **Settings** → **Apps** and search for **Markifact**).
+2. Click **Connect** and sign in with your Markifact account when redirected.
+3. Link your ad platform accounts at <https://www.markifact.com/app/connections>.
+
+**Manual fallback** (only if the plugin is unavailable on your plan; requires Pro, Business or Enterprise):
 
 1. Open ChatGPT → **Settings** → **Apps** → enable **Developer mode**.
 2. Click **Create app**.
 3. Set the name to **Markifact** and paste the MCP Server URL: `https://api.markifact.com/mcp`
 4. Keep **Authentication** set to **OAuth**, then click **Create**.
 5. Sign in with your Markifact account when redirected.
-6. Link your ad platform accounts at <https://www.markifact.com/app/connections>.
 
 For Codex (terminal/desktop), see [docs/codex.md](docs/codex.md).
 

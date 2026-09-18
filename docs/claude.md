@@ -1,10 +1,21 @@
 # Claude (Web & Desktop)
 
-Claude on the web and desktop apps supports remote MCP servers as **custom connectors** on Pro and Team plans. The flow is identical for both; only the fallback config-file option (Option 2) is desktop-only.
+Markifact is listed in Claude's official connector directory, so most users can add it in two clicks.
 
 > For Claude Code (terminal), see [claude-code.md](claude-code.md).
 
-## Option 1: Custom Connector (recommended)
+## Option 1: Connector directory (recommended)
+
+1. Open the Markifact listing: <https://claude.ai/directory/markifact>
+   (or in Claude, go to **Settings** → **Connectors** and search for **Markifact**).
+2. Click **Connect**. You're redirected to sign in with your Markifact account via OAuth.
+3. Link your ad platform accounts at <https://www.markifact.com/app/connections>.
+
+On Team and Enterprise plans an Owner may need to enable the connector for the organization first. See [CONNECTING.md](../CONNECTING.md#add-markifact-as-an-organizational-custom-connector-claude-owners).
+
+## Option 2: Custom connector
+
+Use this if your plan or organization does not expose the directory listing.
 
 1. In any Claude conversation, click the **+** button next to the search bar.
 2. Select **Add custom connector**.
@@ -12,7 +23,7 @@ Claude on the web and desktop apps supports remote MCP servers as **custom conne
 4. URL: `https://api.markifact.com/mcp`
 5. Click **Add**. You're redirected to sign in with your Markifact account via OAuth.
 
-## Option 2: Config file (Claude Desktop only)
+## Option 3: Config file (Claude Desktop only)
 
 If you don't see the **Add custom connector** option, edit `claude_desktop_config.json` directly. Generate a token at <https://www.markifact.com/app/mcp> first, then add:
 
