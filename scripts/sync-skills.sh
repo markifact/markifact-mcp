@@ -11,7 +11,8 @@
 #   skills/<name>/SKILL.md             (Claude Code  — model-invocable skills)
 #   agents/<name>.md                   (Claude Code  — sub-agents)
 #   gemini/commands/markifact/*.toml   (Gemini CLI   — slash commands as TOML)
-#   rules/markifact.mdc  (Cursor — single bundled rules file)
+#   rules/markifact.mdc                             (Cursor plugin — lean always-on rule)
+#   plugins/cursor/markifact/markifact-bundled.mdc  (Cursor script install — everything inlined)
 #   plugins/codex/markifact/AGENTS.md  (Codex CLI    — single concatenated prompt)
 #
 # Run from repo root:  ./scripts/sync-skills.sh
@@ -27,7 +28,7 @@ if [[ "${1:-}" == "--check" ]]; then
   CHECK_MODE=1
 fi
 
-OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/codex/markifact/AGENTS.md)
+OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md)
 
 # Capture pre-state for --check
 if [[ $CHECK_MODE -eq 1 ]]; then
@@ -37,6 +38,7 @@ fi
 # --- Clean output dirs (don't touch the input shared/ tree) -----------------
 rm -rf commands skills agents gemini/commands/markifact \
        rules \
+       plugins/cursor/markifact/markifact-bundled.mdc \
        plugins/codex/markifact/AGENTS.md
 mkdir -p commands skills agents gemini/commands/markifact \
          rules
@@ -74,7 +76,27 @@ for src in shared/commands/*.md; do
 done
 echo "✓ Gemini commands      → gemini/commands/markifact/"
 
-# --- 5. Cursor bundled rules (.mdc) ----------------------------------------
+# --- 5. Cursor rules (.mdc) ------------------------------------------------
+# Two renderings of the same shared/ source:
+#   rules/markifact.mdc                            lean; the plugin declares
+#     skills/, commands/ and agents/ itself, so inlining them here would load
+#     every workflow into every conversation twice.
+#   plugins/cursor/markifact/markifact-bundled.mdc everything inlined, for
+#     install.sh users who get the rule file on its own with no plugin.
+strip_frontmatter() { awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$1"; }
+
+{
+  cat <<'EOF'
+---
+description: Markifact performance-marketing agent. Auto-loaded whenever you ask about ads, GA4, Shopify, HubSpot or other marketing platforms.
+alwaysApply: true
+---
+
+EOF
+  strip_frontmatter shared/agents/performance-marketer.md
+} > rules/markifact.mdc
+echo "✓ Cursor rule (lean)   → rules/markifact.mdc"
+
 {
   cat <<'EOF'
 ---
@@ -83,7 +105,7 @@ alwaysApply: true
 ---
 
 EOF
-  awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' shared/agents/performance-marketer.md
+  strip_frontmatter shared/agents/performance-marketer.md
   echo
   echo "---"
   echo "## Reference skills (always loaded)"
@@ -92,7 +114,7 @@ EOF
     name=$(basename "$(dirname "$src")")
     echo "### $name"
     echo
-    awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$src"
+    strip_frontmatter "$src"
     echo
   done
   echo "---"
@@ -102,11 +124,11 @@ EOF
     name=$(basename "$src" .md)
     echo "### $name"
     echo
-    awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$src"
+    strip_frontmatter "$src"
     echo
   done
-} > rules/markifact.mdc
-echo "✓ Cursor rules         → rules/markifact.mdc"
+} > plugins/cursor/markifact/markifact-bundled.mdc
+echo "✓ Cursor rule (bundled)→ plugins/cursor/markifact/markifact-bundled.mdc"
 
 # --- 6. Codex AGENTS.md (concatenated prompt) ------------------------------
 {
