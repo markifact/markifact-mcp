@@ -1,0 +1,41 @@
+{
+  "name": "markifact",
+  "version": "1.0.2",
+  "type": "module",
+  "description": "Production performance marketing automation. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
+  "license": "MIT",
+  "author": {
+    "name": "Markifact",
+    "email": "contact@markifact.com",
+    "url": "https://www.markifact.com"
+  },
+  "homepage": "https://www.markifact.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markifact/markifact-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/markifact/markifact-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "openclaw",
+    "openclaw-plugin",
+    "marketing",
+    "google-ads",
+    "meta-ads",
+    "facebook-ads",
+    "ga4",
+    "google-analytics",
+    "dv360",
+    "shopify",
+    "hubspot",
+    "linkedin-ads",
+    "tiktok-ads",
+    "marketing-automation",
+    "performance-marketing",
+    "ad-management",
+    "media-buying",
+    "agencies"
+  ]
+}
