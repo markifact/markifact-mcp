@@ -1,0 +1,38 @@
+{
+  "id": "markifact",
+  "name": "Markifact",
+  "version": "1.0.3",
+  "description": "Production performance marketing automation. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
+  "categories": ["sales-marketing"],
+  "skills": ["skills"],
+  "mcpServers": {
+    "markifact": {
+      "url": "https://api.markifact.com/mcp",
+      "transport": "streamable-http",
+      "auth": "oauth"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "default_account_label": {
+        "type": "string",
+        "title": "Default account label",
+        "description": "Optional. A short label (e.g. \"Acme US\") that the agent should assume when you don't specify which connection to use. Leave empty to be asked every time."
+      },
+      "preferred_currency": {
+        "type": "string",
+        "title": "Preferred currency",
+        "description": "Optional ISO currency code (e.g. USD, EUR, GBP) used when summarising spend and revenue.",
+        "pattern": "^[A-Z]{3}$",
+        "default": "USD"
+      },
+      "default_platforms": {
+        "type": "string",
+        "title": "Default platforms",
+        "description": "Comma-separated list of platforms you actively manage (e.g. \"google_ads,meta_ads,ga4\"). The agent will prioritize these when discovering operations. Leave empty to consider all connected platforms."
+      }
+    }
+  }
+}
