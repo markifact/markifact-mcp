@@ -1,7 +1,7 @@
 {
   "id": "markifact",
   "name": "Markifact",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Production performance marketing automation. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
   "categories": ["sales-marketing"],
   "skills": ["skills"],

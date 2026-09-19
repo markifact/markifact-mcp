@@ -17,13 +17,29 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 python3 - <<PY
-import json, pathlib
+import json, pathlib, re
 new = "$NEW"
-for p in [".claude-plugin/plugin.json", "server.json", "gemini-extension.json"]:
+# Every manifest carries the plugin version as "version": "X.Y.Z", either at the
+# top level or inside a marketplace "plugins" entry. Replace the text in place so
+# the files keep their existing formatting instead of being re-serialised.
+pattern = re.compile(r'("version"\s*:\s*")\d+\.\d+\.\d+(")')
+for p in [
+    ".claude-plugin/plugin.json",
+    ".claude-plugin/marketplace.json",
+    ".cursor-plugin/plugin.json",
+    ".openclaw-plugin/plugin.json",
+    ".openclaw-plugin/marketplace.json",
+    "openclaw.plugin.json",
+    "package.json",
+    "server.json",
+    "gemini-extension.json",
+]:
     f = pathlib.Path(p)
-    data = json.loads(f.read_text())
-    data["version"] = new
-    f.write_text(json.dumps(data, indent=2) + "\n")
+    text, count = pattern.subn(rf'\g<1>{new}\g<2>', f.read_text())
+    if count == 0:
+        raise SystemExit(f"✗ {p}: no version field found")
+    json.loads(text)  # refuse to write anything that is no longer valid JSON
+    f.write_text(text)
     print(f"✓ {p} → {new}")
 PY
 
