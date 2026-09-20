@@ -1,6 +1,6 @@
 # Connecting to Markifact
 
-Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 10+ more**: 1000+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
+Markifact connects AI assistants to your ad platforms and analytics across **Google Ads, Meta Ads, GA4, DV360, Microsoft Ads, TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Amazon Ads, Shopify, HubSpot, Klaviyo, Slack, WhatsApp, Google Maps, and 50+ more**: 1000+ operations for campaign launches, creative edits, audience builds, negative sweeps, performance diagnosis, and reporting.
 
 ## Quick Links
 

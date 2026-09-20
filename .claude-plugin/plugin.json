@@ -1,9 +1,9 @@
 {
   "name": "markifact",
-  "displayName": "Markifact — Performance Marketing",
-  "version": "1.0.4",
+  "displayName": "Markifact - Ads & Analytics",
+  "version": "1.0.5",
   "icon": "./icon.png",
-  "description": "Production performance marketing automation for Claude. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
+  "description": "Production performance marketing automation for Claude. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 50+ more. Approval-gated writes.",
   "author": {
     "name": "Markifact",
     "email": "contact@markifact.com",

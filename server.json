@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.markifact/mcp",
-  "title": "Markifact: AI Performance Marketing",
+  "title": "Markifact - Ads & Analytics",
   "description": "AI marketing agent for Google Ads, Meta, GA4, TikTok, LinkedIn, Shopify, HubSpot and more.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "websiteUrl": "https://markifact.com",
   "repository": {
     "url": "https://github.com/markifact/markifact-mcp",

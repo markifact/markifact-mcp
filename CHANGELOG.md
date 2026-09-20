@@ -4,6 +4,16 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2026-09-20
+
+### Added
+- Hermes Agent plugin at `plugins/hermes/markifact` (portable Agent Plugins v1: manifest, `mcp.json`, ten skills generated from `shared/`).
+
+### Changed
+- Display name is now "Markifact - Ads & Analytics" on Cursor, Claude, ClawHub and the MCP Registry. Plugin ids are unchanged.
+- Platform count updated to 50+ across manifests and docs.
+- `bump-version.sh` covers every manifest (ten files) and preserves formatting.
+
 ## [1.0.4] - 2026-09-19
 
 ### Added

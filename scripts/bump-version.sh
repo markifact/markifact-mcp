@@ -30,6 +30,7 @@ for p in [
     ".openclaw-plugin/plugin.json",
     ".openclaw-plugin/marketplace.json",
     "openclaw.plugin.json",
+    "plugins/hermes/markifact/plugin.json",
     "package.json",
     "server.json",
     "gemini-extension.json",

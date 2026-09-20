@@ -71,6 +71,7 @@ All clients connect to the same MCP server. Sign up at [www.markifact.com](https
 | **Windsurf** | See [docs/windsurf.md](docs/windsurf.md) |
 | **Gemini CLI** | `gemini extensions install github.com/markifact/markifact-mcp` |
 | **Antigravity** | See [docs/antigravity.md](docs/antigravity.md) |
+| **Hermes Agent** | `hermes plugins install markifact/markifact-mcp#plugins/hermes/markifact` (see [plugins/hermes/markifact](plugins/hermes/markifact/README.md)) |
 | **Any MCP-compliant client** | Raw URL: `https://api.markifact.com/mcp` (OAuth 2.1) |
 
 Per-client guides live in [`docs/`](docs/).

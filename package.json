@@ -1,8 +1,8 @@
 {
   "name": "markifact-mcp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
-  "description": "Production performance marketing automation. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 20+ more. Approval-gated writes.",
+  "description": "Production performance marketing automation. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers across Google Ads, Meta Ads, GA4, Shopify, HubSpot, and 50+ more. Approval-gated writes.",
   "license": "MIT",
   "author": {
     "name": "Markifact",

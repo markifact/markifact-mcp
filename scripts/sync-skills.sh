@@ -14,6 +14,7 @@
 #   rules/markifact.mdc                             (Cursor plugin — lean always-on rule)
 #   plugins/cursor/markifact/markifact-bundled.mdc  (Cursor script install — everything inlined)
 #   plugins/codex/markifact/AGENTS.md  (Codex CLI    — single concatenated prompt)
+#   plugins/hermes/markifact/skills/   (Hermes Agent — portable Agent Plugins v1 skills)
 #
 # Run from repo root:  ./scripts/sync-skills.sh
 # Check mode (CI):     ./scripts/sync-skills.sh --check
@@ -28,7 +29,7 @@ if [[ "${1:-}" == "--check" ]]; then
   CHECK_MODE=1
 fi
 
-OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md)
+OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md plugins/hermes/markifact/skills)
 
 # Capture pre-state for --check
 if [[ $CHECK_MODE -eq 1 ]]; then
@@ -39,9 +40,10 @@ fi
 rm -rf commands skills agents gemini/commands/markifact \
        rules \
        plugins/cursor/markifact/markifact-bundled.mdc \
-       plugins/codex/markifact/AGENTS.md
+       plugins/codex/markifact/AGENTS.md \
+       plugins/hermes/markifact/skills
 mkdir -p commands skills agents gemini/commands/markifact \
-         rules
+         rules plugins/hermes/markifact/skills
 
 # --- 1. Claude Code slash commands (identity copy) -------------------------
 for src in shared/commands/*.md; do
@@ -160,6 +162,31 @@ echo "✓ Cursor rule (bundled)→ plugins/cursor/markifact/markifact-bundled.md
   done
 } > plugins/codex/markifact/AGENTS.md
 echo "✓ Codex AGENTS.md      → plugins/codex/markifact/AGENTS.md"
+
+# --- 7. Hermes Agent skills (portable Agent Plugins v1) --------------------
+# Hermes reads plugins/hermes/markifact/{plugin.json,mcp.json,skills/}. The
+# portable format has skills only (no agents or commands), so the agent persona
+# and every workflow become skills. Agent Skills frontmatter is name +
+# description only; Claude-specific keys (user-invocable, disable-model-invocation,
+# argument-hint) are dropped.
+hermes_skill() {  # <dir-name> <source-file>
+  local name="$1" src="$2" dir="plugins/hermes/markifact/skills/$1"
+  local desc
+  desc=$(awk '/^description:/{sub(/^description:[[:space:]]*/,""); print; exit}' "$src")
+  mkdir -p "$dir"
+  {
+    printf -- '---\nname: %s\ndescription: %s\n---\n' "$name" "$desc"
+    strip_frontmatter "$src" | sed '1{/^$/d;}'
+  } > "$dir/SKILL.md"
+}
+hermes_skill markifact-agent shared/agents/performance-marketer.md
+for src in shared/skills/*/SKILL.md; do
+  hermes_skill "$(basename "$(dirname "$src")")" "$src"
+done
+for src in shared/commands/*.md; do
+  hermes_skill "$(basename "$src" .md)" "$src"
+done
+echo "✓ Hermes skills        → plugins/hermes/markifact/skills/"
 
 # --- Check mode: fail if any output changed --------------------------------
 if [[ $CHECK_MODE -eq 1 ]]; then
