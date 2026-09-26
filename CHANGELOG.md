@@ -4,6 +4,16 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2026-09-26
+
+### Changed
+- Plugin icon now lives only at `assets/icon.png`, with embedded metadata stripped.
+- Added a privacy policy URL to the plugin manifest.
+
+### Removed
+- Unused user config options (default account label, preferred currency, default platforms) from all manifests.
+- Root `CLAUDE.md`; its content is covered by the `markifact-overview` skill.
+
 ## [1.0.5] - 2026-09-20
 
 ### Added

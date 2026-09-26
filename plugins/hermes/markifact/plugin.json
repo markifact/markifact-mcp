@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "markifact",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Ads and analytics automation for Google Ads, Meta Ads, GA4, Shopify, HubSpot and 50+ more platforms. Audit accounts, launch campaigns, rotate creative, and diagnose underperformers. Approval-gated writes.",
   "author": {
     "name": "Markifact",
