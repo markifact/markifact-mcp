@@ -20,7 +20,78 @@
       "repository": "https://github.com/markifact/markifact-mcp",
       "license": "MIT",
       "category": "marketing",
-      "tags": ["mcp", "claude-code", "claude-code-plugin", "marketing", "google-ads", "meta-ads", "facebook-ads", "ga4", "google-analytics", "dv360", "shopify", "hubspot", "linkedin-ads", "tiktok-ads", "marketing-automation", "performance-marketing", "ad-management", "media-buying", "agencies"],
+      "tags": [
+        "mcp",
+        "claude-code",
+        "claude-code-plugin",
+        "marketing",
+        "google-ads",
+        "meta-ads",
+        "facebook-ads",
+        "ga4",
+        "google-analytics",
+        "dv360",
+        "shopify",
+        "hubspot",
+        "linkedin-ads",
+        "tiktok-ads",
+        "marketing-automation",
+        "performance-marketing",
+        "ad-management",
+        "media-buying",
+        "agencies"
+      ],
+      "author": {
+        "name": "Markifact",
+        "email": "contact@markifact.com"
+      }
+    },
+    {
+      "name": "google-ads",
+      "source": {
+        "source": "github",
+        "repo": "markifact/google-ads-mcp"
+      },
+      "version": "1.0.0",
+      "description": "Google Ads MCP server: reports, search terms, negatives, budgets, bids, campaign creation and Performance Max, with approval on every write.",
+      "homepage": "https://www.markifact.com/google-ads-mcp",
+      "repository": "https://github.com/markifact/google-ads-mcp",
+      "license": "MIT",
+      "category": "marketing",
+      "tags": [
+        "mcp",
+        "claude-code",
+        "claude-code-plugin",
+        "google-ads",
+        "google-ads-api",
+        "ppc",
+        "pmax"
+      ],
+      "author": {
+        "name": "Markifact",
+        "email": "contact@markifact.com"
+      }
+    },
+    {
+      "name": "meta-ads",
+      "source": {
+        "source": "github",
+        "repo": "markifact/meta-ads-mcp"
+      },
+      "version": "1.0.0",
+      "description": "Meta Ads MCP server for Facebook and Instagram ads: reports with breakdowns, campaigns, ad sets, ads, creatives and audiences, with approval on every write.",
+      "homepage": "https://www.markifact.com/meta-ads-mcp",
+      "repository": "https://github.com/markifact/meta-ads-mcp",
+      "license": "MIT",
+      "category": "marketing",
+      "tags": [
+        "mcp",
+        "claude-code",
+        "claude-code-plugin",
+        "meta-ads",
+        "facebook-ads",
+        "instagram-ads"
+      ],
       "author": {
         "name": "Markifact",
         "email": "contact@markifact.com"

@@ -27,11 +27,11 @@ One install, every account, behind a single OAuth flow.
 
 ### Google Ads MCP
 
-Full read and write coverage of the Google Ads API: reporting across campaigns, ad groups, ads, keywords, search terms, assets, and conversions; campaign creation (Search, Performance Max, Display, Shopping, Demand Gen); budgets, bidding, and negative keyword management. No developer token, Google Cloud project, or local server required, unlike Google's official read-only MCP. Setup guide: [markifact.com/google-ads-mcp](https://www.markifact.com/google-ads-mcp)
+Full read and write coverage of the Google Ads API: reporting across campaigns, ad groups, ads, keywords, search terms, assets, and conversions; campaign creation (Search, Performance Max, Display, Shopping, Demand Gen); budgets, bidding, and negative keyword management. Hosted, one OAuth login, approval on every write. Dedicated endpoint and repo: [github.com/markifact/google-ads-mcp](https://github.com/markifact/google-ads-mcp). Setup guide: [markifact.com/google-ads-mcp](https://www.markifact.com/google-ads-mcp)
 
 ### Meta Ads MCP (Facebook & Instagram)
 
-Create campaigns, ad sets, and single image, video, carousel, and catalog creatives; pull performance with placement, device, and demographic breakdowns; manage custom and lookalike audiences; diagnose Pixel and Conversions API setup. Markifact is an approved Meta tech provider. Setup guide: [markifact.com/meta-ads-mcp](https://www.markifact.com/meta-ads-mcp)
+Create campaigns, ad sets, and single image, video, carousel, and catalog creatives; pull performance with placement, device, and demographic breakdowns; manage custom and lookalike audiences; diagnose Pixel and Conversions API setup. Markifact is an approved Meta tech provider. Dedicated endpoint and repo: [github.com/markifact/meta-ads-mcp](https://github.com/markifact/meta-ads-mcp). Setup guide: [markifact.com/meta-ads-mcp](https://www.markifact.com/meta-ads-mcp)
 
 ## See it in action
 
