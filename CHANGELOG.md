@@ -4,6 +4,11 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7] - 2026-10-04
+
+### Changed
+- Claude plugin description now leads with the platforms it runs (Google Ads, Meta Ads, GA4, TikTok Ads, LinkedIn Ads, Shopify).
+
 ## [1.0.6] - 2026-09-26
 
 ### Changed
