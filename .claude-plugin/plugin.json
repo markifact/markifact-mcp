@@ -1,7 +1,7 @@
 {
   "name": "markifact",
   "displayName": "Markifact - Ads & Analytics",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "icon": "./assets/icon.png",
   "description": "Run Google Ads, Meta Ads, GA4, TikTok Ads, LinkedIn Ads, Shopify and 50+ more from Claude. Audit accounts, launch campaigns and pull reports, with your approval on every change.",
   "author": {
