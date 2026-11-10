@@ -1,7 +1,6 @@
 ---
 name: safe-write-operations
 description: Reference — rules for safely executing write/destructive operations against ad accounts. Always loaded into the performance-marketer agent.
-user-invocable: false
 ---
 
 # Safe write operations

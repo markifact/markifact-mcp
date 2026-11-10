@@ -4,6 +4,12 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.10] - 2026-11-10
+
+### Changed
+- Claude plugin skills, commands and agent keep only `name` and `description` frontmatter, the keys the Claude plugin directory accepts from non-Verified organizations.
+- Listing keywords cover every supported integration across all manifests, and the Claude plugin README lists them.
+
 ## [1.0.9] - 2026-11-10
 
 ### Changed

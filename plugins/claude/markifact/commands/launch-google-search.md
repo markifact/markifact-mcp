@@ -1,7 +1,5 @@
 ---
 description: Launch a complete Google Ads Search campaign — campaign, ad group, responsive search ads, keywords, sitelinks, callouts, and negatives — built paused and ready to review. Use when the user wants to spin up a new Search campaign on Google Ads.
-disable-model-invocation: true
-argument-hint: '[optional brief, e.g. "B2B SaaS, $50/day, US, leads"]'
 ---
 
 ## Goal

@@ -1,7 +1,6 @@
 ---
 name: markifact-overview
 description: Reference — what Markifact is, what the MCP server exposes, and the discover→inspect→run pattern. Always loaded into the performance-marketer agent.
-user-invocable: false
 ---
 
 # About Markifact

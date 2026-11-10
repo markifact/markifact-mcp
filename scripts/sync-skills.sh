@@ -74,7 +74,17 @@ echo "✓ Claude Code agent    → agents/"
 
 # The Claude plugin itself lives in plugins/claude/markifact (marketplace.json
 # source), so the directory scans only Claude's files, not the other tools'.
+# The plugin directory refuses frontmatter keys outside its allowed list from
+# non-Verified orgs (user-invocable, disable-model-invocation, argument-hint,
+# model, and the agent's skills list were refused), so this copy keeps only
+# name and description.
 cp -R commands skills agents plugins/claude/markifact/
+for f in plugins/claude/markifact/{commands/*.md,agents/*.md,skills/*/SKILL.md}; do
+  awk 'NR==1 && /^---$/ {fm=1; print; next}
+       fm && /^---$/ {fm=0; print; next}
+       fm { if ($0 ~ /^[A-Za-z_-]+:/) keep = ($0 ~ /^(name|description):/); if (keep) print; next }
+       {print}' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+done
 echo "✓ Claude plugin        → plugins/claude/markifact/"
 
 # --- 4. Gemini CLI commands (TOML, from shared/commands/) ------------------

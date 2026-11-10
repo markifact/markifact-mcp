@@ -1,6 +1,5 @@
 ---
 description: Diagnose why a specific Google Ads or Meta Ads campaign / ad set / ad is underperforming and prescribe the next concrete action. Use when the user says something like "why is X not converting?", "this campaign is wasting money", or "why are impressions so low?". Read-only — no changes are made.
-argument-hint: '[target, e.g. "campaign Spring Sale" or "Meta ad set 123"]'
 ---
 
 ## Goal
