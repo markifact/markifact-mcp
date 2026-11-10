@@ -10,6 +10,7 @@
 #   commands/<name>.md                 (Claude Code  — slash commands)
 #   skills/<name>/SKILL.md             (Claude Code  — model-invocable skills)
 #   agents/<name>.md                   (Claude Code  — sub-agents)
+#   plugins/claude/markifact/{commands,skills,agents}/ (Claude plugin, copies of the three above)
 #   gemini/commands/markifact/*.toml   (Gemini CLI   — slash commands as TOML)
 #   rules/markifact.mdc                             (Cursor plugin — lean always-on rule)
 #   plugins/cursor/markifact/markifact-bundled.mdc  (Cursor script install — everything inlined)
@@ -30,7 +31,7 @@ if [[ "${1:-}" == "--check" ]]; then
   CHECK_MODE=1
 fi
 
-OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md plugins/hermes/markifact/skills plugins/antigravity/markifact/skills)
+OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md plugins/hermes/markifact/skills plugins/antigravity/markifact/skills plugins/claude/markifact/commands plugins/claude/markifact/skills plugins/claude/markifact/agents)
 
 # Capture pre-state for --check
 if [[ $CHECK_MODE -eq 1 ]]; then
@@ -43,7 +44,10 @@ rm -rf commands skills agents gemini/commands/markifact \
        plugins/cursor/markifact/markifact-bundled.mdc \
        plugins/codex/markifact/AGENTS.md \
        plugins/hermes/markifact/skills \
-       plugins/antigravity/markifact/skills
+       plugins/antigravity/markifact/skills \
+       plugins/claude/markifact/commands \
+       plugins/claude/markifact/skills \
+       plugins/claude/markifact/agents
 mkdir -p commands skills agents gemini/commands/markifact \
          rules plugins/hermes/markifact/skills \
          plugins/antigravity/markifact/skills
@@ -67,6 +71,11 @@ for src in shared/agents/*.md; do
   cp "$src" "agents/$(basename "$src")"
 done
 echo "✓ Claude Code agent    → agents/"
+
+# The Claude plugin itself lives in plugins/claude/markifact (marketplace.json
+# source), so the directory scans only Claude's files, not the other tools'.
+cp -R commands skills agents plugins/claude/markifact/
+echo "✓ Claude plugin        → plugins/claude/markifact/"
 
 # --- 4. Gemini CLI commands (TOML, from shared/commands/) ------------------
 for src in shared/commands/*.md; do

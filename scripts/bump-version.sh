@@ -24,7 +24,7 @@ new = "$NEW"
 # the files keep their existing formatting instead of being re-serialised.
 pattern = re.compile(r'("version"\s*:\s*")\d+\.\d+\.\d+(")')
 for p in [
-    ".claude-plugin/plugin.json",
+    "plugins/claude/markifact/.claude-plugin/plugin.json",
     ".claude-plugin/marketplace.json",
     ".cursor-plugin/plugin.json",
     ".openclaw-plugin/plugin.json",

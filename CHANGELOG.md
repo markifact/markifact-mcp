@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.9] - 2026-11-10
+
+### Changed
+- The Claude plugin now lives in `plugins/claude/markifact/` (the marketplace points there), so the Claude plugin directory reads only Claude's files instead of every client's.
+- `.mcp.json` for Claude drops the `auth` field (sign-in uses OAuth discovery without it), and command `argument-hint` values are plain text.
+- Line endings pinned to LF in `.gitattributes`.
+
 ## [1.0.8] - 2026-10-30
 
 ### Added

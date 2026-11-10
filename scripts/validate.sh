@@ -18,14 +18,15 @@ check_json() {
   fi
 }
 
-check_json .claude-plugin/plugin.json
+check_json plugins/claude/markifact/.claude-plugin/plugin.json
+check_json plugins/claude/markifact/.mcp.json
 check_json .claude-plugin/marketplace.json
 check_json .mcp.json
 check_json server.json
 check_json gemini-extension.json
 
 # --- Cross-file version check ---
-v_plugin=$(python3 -c 'import json; print(json.load(open(".claude-plugin/plugin.json"))["version"])')
+v_plugin=$(python3 -c 'import json; print(json.load(open("plugins/claude/markifact/.claude-plugin/plugin.json"))["version"])')
 v_server=$(python3 -c 'import json; print(json.load(open("server.json"))["version"])')
 v_gemini=$(python3 -c 'import json; print(json.load(open("gemini-extension.json"))["version"])')
 
@@ -49,6 +50,7 @@ if command -v claude > /dev/null 2>&1; then
   echo
   echo "Running: claude plugin validate ."
   claude plugin validate . || ok=0
+  claude plugin validate plugins/claude/markifact || ok=0
 else
   echo
   echo "ℹ Skipping 'claude plugin validate' (claude CLI not installed)"

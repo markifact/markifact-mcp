@@ -28,7 +28,7 @@ Each AI client gets a manifest pointing at that URL:
 
 | Client | Manifest |
 |--------|----------|
-| Claude Code | `.mcp.json` (referenced by `.claude-plugin/plugin.json`) |
+| Claude Code | `plugins/claude/markifact/` (`.claude-plugin/plugin.json`, `.mcp.json`), listed by `.claude-plugin/marketplace.json` |
 | Gemini CLI | `gemini-extension.json` |
 | Cursor | `mcp.json` (referenced by `.cursor-plugin/plugin.json`); script install writes `~/.cursor/mcp.json` |
 | Codex CLI | `~/.codex/config.toml` (merged by install script) |

@@ -1,7 +1,7 @@
 ---
 description: Launch a complete Meta Ads campaign — campaign, ad set, and ad(s) — built paused and ready to review. Use when the user wants a new Facebook/Instagram campaign.
 disable-model-invocation: true
-argument-hint: [optional brief, e.g. "ecom DTC, $80/day, US, conversions"]
+argument-hint: '[optional brief, e.g. "ecom DTC, $80/day, US, conversions"]'
 ---
 
 ## Goal

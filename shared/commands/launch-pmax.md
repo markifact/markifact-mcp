@@ -1,7 +1,7 @@
 ---
 description: Launch a Google Ads Performance Max campaign with a complete asset group, audience signals, and (for ecom) listing groups. Built paused for review. Use when the user wants a new PMax campaign.
 disable-model-invocation: true
-argument-hint: [optional brief, e.g. "ecom apparel, $100/day, US/CA, ROAS 3"]
+argument-hint: '[optional brief, e.g. "ecom apparel, $100/day, US/CA, ROAS 3"]'
 ---
 
 ## Goal

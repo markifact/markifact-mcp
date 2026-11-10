@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "markifact",
   "displayName": "Markifact - Ads & Analytics",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Run Google Ads, Meta Ads, GA4, TikTok Ads and 50+ marketing platforms. Audit accounts, launch campaigns and pull reports, with approval on every change.",
   "logo": "assets/logo.png",
   "suggestedPrompts": [

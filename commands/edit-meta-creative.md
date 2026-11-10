@@ -1,7 +1,7 @@
 ---
 description: Edit a Meta ad's creative content — landing page URL, primary text, headline, description, CTA, link description — across one ad or many. Use when the user says "change the URL on my ads", "update the copy", "swap the CTA", or anything that changes what an existing Meta ad shows. Meta does not allow in-place creative edits, so this command runs the required get → modify → create → replace workflow.
 disable-model-invocation: true
-argument-hint: [scope, e.g. "all ads in campaign X" or "ad ABC123"]
+argument-hint: '[scope, e.g. "all ads in campaign X" or "ad ABC123"]'
 ---
 
 ## Goal

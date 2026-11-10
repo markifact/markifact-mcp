@@ -1,7 +1,7 @@
 ---
 description: Find wasted spend in Google Ads search terms and add negatives at the right scope (account list, campaign, or ad group). Use when the user says "find junk keywords", "stop wasting on bad searches", or wants a search-terms cleanup.
 disable-model-invocation: true
-argument-hint: [scope, e.g. "campaign Spring" or "all Search campaigns"]
+argument-hint: '[scope, e.g. "campaign Spring" or "all Search campaigns"]'
 ---
 
 ## Goal
