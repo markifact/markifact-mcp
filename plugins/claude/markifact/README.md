@@ -2,6 +2,15 @@
 
 Run Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4, Shopify, HubSpot and 50+ more platforms from Claude. 1000+ operations through Markifact's hosted MCP server, with approval required before any write.
 
+## Works with
+
+- **Ads:** Google Ads, Meta Ads (Facebook and Instagram), Microsoft Ads (Bing), TikTok Ads, LinkedIn Ads, X Ads, Snapchat Ads, Reddit Ads, Pinterest Ads, Amazon Ads, Spotify Ads, OpenAI Ads, Apple Ads, DV360
+- **Analytics and tracking:** GA4, Google Tag Manager, Google Search Console, Bing Webmaster Tools, Adjust, Google Data Manager
+- **Ecommerce and local:** Google Merchant Center, Shopify, Google Business Profile, Google Maps
+- **SEO:** Ahrefs, Semrush, DataForSEO, Google Trends
+- **Organic social:** Facebook Pages, Instagram, LinkedIn, TikTok, YouTube
+- **CRM, email and data:** HubSpot, Klaviyo, Google Sheets, BigQuery, Google Slides, Google Docs, SharePoint
+
 This folder is the Claude plugin: `.claude-plugin/plugin.json`, `.mcp.json`, two reference skills, a performance-marketer agent and seven workflow commands. It ships no code and installs no dependencies.
 
 ## Install
