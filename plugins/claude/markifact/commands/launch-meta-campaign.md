@@ -1,4 +1,5 @@
 ---
+name: launch-meta-campaign
 description: Launch a complete Meta Ads campaign — campaign, ad set, and ad(s) — built paused and ready to review. Use when the user wants a new Facebook/Instagram campaign.
 ---
 

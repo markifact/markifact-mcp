@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.11] - 2026-11-20
+
+### Changed
+- Every command carries a `name` in its frontmatter, as the Cursor plugin validator requires.
+- Cursor manifest: keywords written the way people search ("google ads" instead of "google-ads"), and no `publisher` field (not part of Cursor's manifest).
+- The Cursor rule descriptions match how the rule loads, and the agent instructions name the `requires_approval` flag that `find_operations` returns.
+
 ## [1.0.10] - 2026-11-10
 
 ### Changed

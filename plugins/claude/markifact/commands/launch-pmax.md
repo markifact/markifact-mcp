@@ -1,4 +1,5 @@
 ---
+name: launch-pmax
 description: Launch a Google Ads Performance Max campaign with a complete asset group, audience signals, and (for ecom) listing groups. Built paused for review. Use when the user wants a new PMax campaign.
 ---
 

@@ -112,7 +112,7 @@ strip_frontmatter() { awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$1"; }
 {
   cat <<'EOF'
 ---
-description: Markifact performance-marketing agent. Auto-loaded whenever you ask about ads, GA4, Shopify, HubSpot or other marketing platforms.
+description: Markifact performance-marketing agent. How to use the Markifact MCP server for ads, GA4, Shopify, HubSpot and other marketing platforms.
 alwaysApply: true
 ---
 
@@ -124,7 +124,7 @@ echo "✓ Cursor rule (lean)   → rules/markifact.mdc"
 {
   cat <<'EOF'
 ---
-description: Markifact performance-marketing agent + skills + commands. Auto-loaded by Cursor whenever you ask about ads, GA4, Shopify, HubSpot or other marketing platforms.
+description: Markifact performance-marketing agent, skills and commands. How to use the Markifact MCP server for ads, GA4, Shopify, HubSpot and other marketing platforms.
 alwaysApply: true
 ---
 
