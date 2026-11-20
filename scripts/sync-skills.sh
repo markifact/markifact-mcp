@@ -12,8 +12,6 @@
 #   agents/<name>.md                   (Claude Code  — sub-agents)
 #   plugins/claude/markifact/{commands,skills,agents}/ (Claude plugin, copies of the three above)
 #   gemini/commands/markifact/*.toml   (Gemini CLI   — slash commands as TOML)
-#   rules/markifact.mdc                             (Cursor plugin — lean always-on rule)
-#   plugins/cursor/markifact/markifact-bundled.mdc  (Cursor script install — everything inlined)
 #   plugins/codex/markifact/AGENTS.md  (Codex CLI    — single concatenated prompt)
 #   plugins/hermes/markifact/skills/   (Hermes Agent — portable Agent Plugins v1 skills)
 #   plugins/antigravity/markifact/skills/ (Antigravity — same portable skills)
@@ -31,7 +29,7 @@ if [[ "${1:-}" == "--check" ]]; then
   CHECK_MODE=1
 fi
 
-OUT_PATHS=(commands skills agents gemini/commands/markifact rules plugins/cursor/markifact/markifact-bundled.mdc plugins/codex/markifact/AGENTS.md plugins/hermes/markifact/skills plugins/antigravity/markifact/skills plugins/claude/markifact/commands plugins/claude/markifact/skills plugins/claude/markifact/agents)
+OUT_PATHS=(commands skills agents gemini/commands/markifact plugins/codex/markifact/AGENTS.md plugins/hermes/markifact/skills plugins/antigravity/markifact/skills plugins/claude/markifact/commands plugins/claude/markifact/skills plugins/claude/markifact/agents)
 
 # Capture pre-state for --check
 if [[ $CHECK_MODE -eq 1 ]]; then
@@ -40,8 +38,6 @@ fi
 
 # --- Clean output dirs (don't touch the input shared/ tree) -----------------
 rm -rf commands skills agents gemini/commands/markifact \
-       rules \
-       plugins/cursor/markifact/markifact-bundled.mdc \
        plugins/codex/markifact/AGENTS.md \
        plugins/hermes/markifact/skills \
        plugins/antigravity/markifact/skills \
@@ -49,7 +45,7 @@ rm -rf commands skills agents gemini/commands/markifact \
        plugins/claude/markifact/skills \
        plugins/claude/markifact/agents
 mkdir -p commands skills agents gemini/commands/markifact \
-         rules plugins/hermes/markifact/skills \
+         plugins/hermes/markifact/skills \
          plugins/antigravity/markifact/skills
 
 # --- 1. Claude Code slash commands (identity copy) -------------------------
@@ -100,59 +96,10 @@ for src in shared/commands/*.md; do
 done
 echo "✓ Gemini commands      → gemini/commands/markifact/"
 
-# --- 5. Cursor rules (.mdc) ------------------------------------------------
-# Two renderings of the same shared/ source:
-#   rules/markifact.mdc                            lean; the plugin declares
-#     skills/, commands/ and agents/ itself, so inlining them here would load
-#     every workflow into every conversation twice.
-#   plugins/cursor/markifact/markifact-bundled.mdc everything inlined, for
-#     install.sh users who get the rule file on its own with no plugin.
+# --- 5. Shared helper --------------------------------------------------------
+# Cursor reads skills/, commands/ and agents/ through .cursor-plugin/plugin.json;
+# it ships no rule, so nothing loads into every conversation.
 strip_frontmatter() { awk 'BEGIN{f=0} /^---$/{f++; next} f>=2{print}' "$1"; }
-
-{
-  cat <<'EOF'
----
-description: Markifact performance-marketing agent. How to use the Markifact MCP server for ads, GA4, Shopify, HubSpot and other marketing platforms.
-alwaysApply: true
----
-
-EOF
-  strip_frontmatter shared/agents/performance-marketer.md
-} > rules/markifact.mdc
-echo "✓ Cursor rule (lean)   → rules/markifact.mdc"
-
-{
-  cat <<'EOF'
----
-description: Markifact performance-marketing agent, skills and commands. How to use the Markifact MCP server for ads, GA4, Shopify, HubSpot and other marketing platforms.
-alwaysApply: true
----
-
-EOF
-  strip_frontmatter shared/agents/performance-marketer.md
-  echo
-  echo "---"
-  echo "## Reference skills (always loaded)"
-  echo
-  for src in shared/skills/*/SKILL.md; do
-    name=$(basename "$(dirname "$src")")
-    echo "### $name"
-    echo
-    strip_frontmatter "$src"
-    echo
-  done
-  echo "---"
-  echo "## Workflows (user-invokable)"
-  echo
-  for src in shared/commands/*.md; do
-    name=$(basename "$src" .md)
-    echo "### $name"
-    echo
-    strip_frontmatter "$src"
-    echo
-  done
-} > plugins/cursor/markifact/markifact-bundled.mdc
-echo "✓ Cursor rule (bundled)→ plugins/cursor/markifact/markifact-bundled.mdc"
 
 # --- 6. Codex AGENTS.md (concatenated prompt) ------------------------------
 {

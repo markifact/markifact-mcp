@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.12] - 2026-11-20
+
+### Changed
+- The agent instructions apply only to requests that use Markifact and no longer describe the host's own tools (shell, file editing), so they never override the IDE assistant.
+
+### Removed
+- The always-on Cursor rule and the Cursor script install (`install.sh` and its bundled rule). Install Markifact from Cursor's plugin list or add the server to `mcp.json`.
+
 ## [1.0.11] - 2026-11-20
 
 ### Changed

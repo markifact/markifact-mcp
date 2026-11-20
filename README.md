@@ -66,7 +66,7 @@ All clients connect to the same MCP server. Sign up at [www.markifact.com](https
 | **Claude Code** | `claude plugin marketplace add markifact/markifact-mcp` then `/plugin install markifact@markifact` |
 | **ChatGPT** | Open the approved [Markifact plugin](https://chatgpt.com/plugins/plugin_asdk_app_69e795096e888191b3908a4dd48a323d), or search **Markifact** in Settings → Apps |
 | **Claude Desktop & Web** | Add it from the [Claude connector directory](https://claude.ai/directory/markifact), or search **Markifact** in Settings → Connectors |
-| **Cursor** | Settings → Plugins → search **Markifact** → Install. Or script: `curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/install.sh \| bash` |
+| **Cursor** | Settings → Plugins → search **Markifact** → Install. Or add the server to `mcp.json` (see [docs/cursor.md](docs/cursor.md)) |
 | **Codex CLI** | `curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/codex/markifact/install.sh \| bash` |
 | **Windsurf** | See [docs/windsurf.md](docs/windsurf.md) |
 | **Gemini CLI** | `gemini extensions install github.com/markifact/markifact-mcp` |

@@ -145,13 +145,7 @@ Reference: [OpenAI MCP Servers Guide](https://help.openai.com/en/articles/988337
 
 ### Cursor
 
-Easiest install:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/install.sh | bash
-```
-
-Or add manually to `mcp.json` (global: `~/.cursor/mcp.json`, per-project: `.cursor/mcp.json`):
+Install the Markifact plugin from Cursor (Settings → Plugins → search **Markifact**), or add the server manually to `mcp.json` (global: `~/.cursor/mcp.json`, per-project: `.cursor/mcp.json`):
 
 ```json
 {

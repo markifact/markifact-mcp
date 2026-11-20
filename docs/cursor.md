@@ -2,20 +2,22 @@
 
 ## Install
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/markifact/markifact-mcp/main/plugins/cursor/markifact/install.sh | bash
+In Cursor, open **Settings → Plugins**, search **Markifact**, and install it. The plugin adds the Markifact MCP server, the `getting-started` skill, the `performance-marketer` agent and the workflow commands.
+
+Or add only the MCP server to `mcp.json` (global: `~/.cursor/mcp.json`, per-project: `.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "markifact": {
+      "url": "https://api.markifact.com/mcp"
+    }
+  }
+}
 ```
 
-The script:
-1. Adds `markifact` to `~/.cursor/mcp.json`.
-2. Installs `~/.cursor/rules/markifact.mdc` — bundled performance-marketer prompt + skill library, auto-loaded by Cursor.
-
-Restart Cursor, open the MCP panel, and authenticate Markifact (browser OAuth).
+Open the MCP panel and sign in to Markifact (browser OAuth).
 
 ## Try it
 
 > "Audit my Google Ads account."
-
-## Manual install
-
-See [`plugins/cursor/markifact/README.md`](../plugins/cursor/markifact/README.md).
