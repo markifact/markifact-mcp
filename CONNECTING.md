@@ -225,7 +225,7 @@ When your AI client prompts you to allow a Markifact tool for the first time:
 - **Read-only** (`find_operations`, `get_operation_inputs`, `list_connections`, `read_file`, `get_file_url`): no cost, no platform writes.
 - **Asset upload** (`upload_media`): adds images/videos to your Markifact workspace; no campaign change.
 - **Execution** (`run_operation`): runs ops where `requires_approval: false`; safe by design (reports, lookups, creative previews, etc.).
-- **Approval-gated writes** (`run_write_operation`): the only path for ops that move money or change live campaigns. The agent walks the four-step protocol before calling this tool.
+- **Approval-gated writes** (`run_write_operation`): the only path for ops that move money or change live campaigns. The agent confirms the change with the user before calling this tool.
 
 ---
 

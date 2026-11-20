@@ -94,7 +94,7 @@ We may share data when required by law, court order, or to protect our or our us
 - **TLS / HTTPS** for all transmission. No unencrypted HTTP accepted.
 - **Encrypted token storage** server-side. OAuth tokens never leave Markifact and are never sent to the AI client.
 - **Least-privilege access** internally; restricted database access.
-- **MCP `ToolAnnotations`** (`readOnlyHint`, `destructiveHint`) on every tool, plus a `requires_approval` flag on every operation. Writes are gated behind explicit user confirmation. See [SECURITY.md](SECURITY.md) and [skills/safe-write-operations/SKILL.md](skills/safe-write-operations/SKILL.md).
+- **MCP `ToolAnnotations`** (`readOnlyHint`, `destructiveHint`) on every tool, plus a `requires_approval` flag on every operation. Writes are gated behind explicit user confirmation. See [SECURITY.md](SECURITY.md) and [skills/getting-started/SKILL.md](skills/getting-started/SKILL.md).
 
 ## Data Retention
 

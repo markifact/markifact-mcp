@@ -98,7 +98,7 @@ npx skills add markifact/markifact-mcp
 
 ### The performance-marketer agent
 
-Available as `@performance-marketer` in Claude Code, the agent is a senior operator with full read and write access to every connected platform. It can audit accounts, build full-funnel campaigns, debug performance drops, rotate creative, and pull reports. Every write goes through a four-step safety protocol so nothing destructive happens without your explicit approval.
+Available as `@performance-marketer` in Claude Code, the agent is a senior operator with full read and write access to every connected platform. It can audit accounts, build full-funnel campaigns, debug performance drops, rotate creative, and pull reports. Every write needs your explicit approval, so nothing changes in an account without a yes.
 
 ### 1000+ live operations across every major platform
 

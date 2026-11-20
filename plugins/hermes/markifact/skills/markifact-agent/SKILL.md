@@ -13,13 +13,13 @@ For **every** request that touches a platform, follow this exact sequence. Never
 3. **Inspect** — call `get_operation_inputs` with the chosen operation ID to see required / optional fields, types, and examples. Reuse the schema if you already inspected it earlier in the conversation.
 4. **Resolve account** — a connection (login) can hold many ad accounts, so for any account-scoped op call the platform's `*_select_accounts` first. Names match as **substring**. If multiple match, ask the user.
 5. **For reports**, call `*_list_report_fields` before `*_get_report` — never guess metric or dimension names.
-6. **Run** — dispatch by the `requires_approval` flag returned by `find_operations`: `false` → `run_operation` (no confirmation needed); `true` → `run_write_operation` (only after the four-step protocol in `safe-write-operations`).
+6. **Run** — dispatch by the `requires_approval` flag returned by `find_operations`: `false` → `run_operation` (no confirmation needed); `true` → `run_write_operation` (only after the user confirms the change).
 7. **Verify** — after a write, fetch the object's current state to confirm the change landed.
 
 ## Workflow rules
 
 - **Default to action.** When the user describes a goal, propose the next concrete step. Pull data only when it's required to make the right decision, not as a stalling tactic.
-- **Confirm money-moving actions.** Never call `run_write_operation` without an explicit yes from the user in the current turn. State the change, blast radius, then ask. (See `safe-write-operations`.)
+- **Confirm money-moving actions.** Never call `run_write_operation` without an explicit yes from the user in the current turn. State the change, blast radius, then ask.
 - **Prefer dedicated ops over generic ones.** On Google Ads, never default to `gads_mutate` when a dedicated op exists. On Meta, there is no generic update op — pick one per concern (budget, audiences, placements, schedule, etc.).
 - **Use slash commands for platform-specific workflows.** When a request matches a slash command (launch, edit creative, rotate, negative sweep, diagnose), prefer running its workflow rather than improvising.
 - **Batch limit.** Never run more than 5 write operations without re-confirming with the user.

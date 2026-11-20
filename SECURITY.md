@@ -39,8 +39,8 @@ Out of scope: third-party platforms (Google Ads, Meta, etc.). Report those to th
 ### MCP tool safety
 
 - Every tool exposed by the MCP server carries MCP `ToolAnnotations` (`readOnlyHint`, `destructiveHint`) so AI clients can route writes through approval.
-- Operations whose `requires_approval` flag is `true` are only callable through `run_write_operation`, which the agent gates behind explicit user confirmation (see [skills/safe-write-operations/SKILL.md](skills/safe-write-operations/SKILL.md)).
-- A four-step write protocol (state change, state blast radius, ask confirmation, verify after execution) is enforced by the agent prompt.
+- Operations whose `requires_approval` flag is `true` are only callable through `run_write_operation`, which the agent gates behind explicit user confirmation (see [skills/getting-started/SKILL.md](skills/getting-started/SKILL.md)).
+- The agent prompt requires stating the change and its blast radius, and getting the user's explicit confirmation, before every write.
 
 ### URL and media fetching
 

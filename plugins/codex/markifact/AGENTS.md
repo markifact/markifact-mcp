@@ -14,13 +14,13 @@ For **every** request that touches a platform, follow this exact sequence. Never
 3. **Inspect** — call `get_operation_inputs` with the chosen operation ID to see required / optional fields, types, and examples. Reuse the schema if you already inspected it earlier in the conversation.
 4. **Resolve account** — a connection (login) can hold many ad accounts, so for any account-scoped op call the platform's `*_select_accounts` first. Names match as **substring**. If multiple match, ask the user.
 5. **For reports**, call `*_list_report_fields` before `*_get_report` — never guess metric or dimension names.
-6. **Run** — dispatch by the `requires_approval` flag returned by `find_operations`: `false` → `run_operation` (no confirmation needed); `true` → `run_write_operation` (only after the four-step protocol in `safe-write-operations`).
+6. **Run** — dispatch by the `requires_approval` flag returned by `find_operations`: `false` → `run_operation` (no confirmation needed); `true` → `run_write_operation` (only after the user confirms the change).
 7. **Verify** — after a write, fetch the object's current state to confirm the change landed.
 
 ## Workflow rules
 
 - **Default to action.** When the user describes a goal, propose the next concrete step. Pull data only when it's required to make the right decision, not as a stalling tactic.
-- **Confirm money-moving actions.** Never call `run_write_operation` without an explicit yes from the user in the current turn. State the change, blast radius, then ask. (See `safe-write-operations`.)
+- **Confirm money-moving actions.** Never call `run_write_operation` without an explicit yes from the user in the current turn. State the change, blast radius, then ask.
 - **Prefer dedicated ops over generic ones.** On Google Ads, never default to `gads_mutate` when a dedicated op exists. On Meta, there is no generic update op — pick one per concern (budget, audiences, placements, schedule, etc.).
 - **Use slash commands for platform-specific workflows.** When a request matches a slash command (launch, edit creative, rotate, negative sweep, diagnose), prefer running its workflow rather than improvising.
 - **Batch limit.** Never run more than 5 write operations without re-confirming with the user.
@@ -67,145 +67,55 @@ You do not have shell, file-write, or arbitrary code execution. If a request nee
 ---
 ## Reference skills
 
-### markifact-overview
+### getting-started
 
 
-# About Markifact
+# Getting Started
 
-[Markifact](https://www.markifact.com) is a full performance-marketing **management + reporting** platform. Its remote MCP server at `https://api.markifact.com/mcp` exposes **1000+ operations** that let you run accounts end-to-end: launch campaigns, edit creatives, manage audiences, rotate ads, sweep negatives, scale winners, diagnose underperformers, and pull reports across every connected platform. Reporting is a first-class capability — it's just not the only thing Markifact does.
+Markifact provides 1,000+ operations across 50+ advertising, analytics, commerce, and productivity platforms, including Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, Google Analytics 4, Shopify, and Google Sheets. Use it to create campaigns and ads, refresh ad creatives, update budgets and bids, manage audiences, analyze performance, generate reports, and move data between connected platforms.
 
-Sign up at [www.markifact.com](https://www.markifact.com) for free credits. Connect your ad accounts at [www.markifact.com/app/connections](https://www.markifact.com/app/connections). Docs and platform coverage at [www.markifact.com](https://www.markifact.com).
+Never assume a requested action is unavailable without searching. These examples are not the full capability list; discover the operations available to the authenticated user for the task at hand.
 
-## Platforms covered
+## Find, inspect, run
 
-- **Google Ads** — Search, PMax, Display, Demand Gen. Full lifecycle: create campaign / ad group / RSA / PMax asset group / sitelinks / callouts / structured snippets / negative lists / portfolio bidding strategies / audience signals / labels. Reporting via GAQL or `gads_get_report`.
-- **Meta Ads** (Facebook + Instagram + Messenger) — campaign / ad set / ad lifecycle, custom + lookalike audiences, catalog (DPA), lead forms, CAPI health, ad previews, and the get→create→replace creative-edit workflow.
-- **GA4, Google Search Console, Google Merchant Center, Google Sheets, Slides, Drive, BigQuery, Trends, Maps, Business Profile, DV360**.
-- **TikTok Ads, LinkedIn Ads, Pinterest Ads, Snapchat Ads, Reddit Ads, Microsoft Ads, Amazon Ads**.
-- **Shopify, Klaviyo, HubSpot, Slack, WhatsApp**, plus utilities (web fetch, charts, code, AI media gen, scheduling, lists).
+Work from the user's task and ask only for missing inputs. Do not run operations just because the plugin is enabled.
 
-## The 8 MCP tools
+1. **Find:** Call `find_operations` with a short platform-and-action query, such as `Google Ads create campaign`, `Meta Ads update ads`, or `GA4 report`. Use the returned operation ID. Try a clearer query or a higher `limit` if the expected operation is missing. If no dedicated operation fits, search for and inspect the platform's generic fallback, such as `gads_mutate`, before concluding the action is unsupported. Do not execute writes merely to test whether a capability exists.
+2. **Inspect:** Call `get_operation_inputs` to get the operation's fields, types, and requirements. Reuse schemas already fetched in the conversation. Prefer a dedicated operation when available.
+3. **Run:** Build `input_data` using only fields from the schema. For `requires_approval: false`, use `run_operation`. For `requires_approval: true`, explain the action, target, and key values, confirm with the user, then use `run_write_operation`. Present budgets and bids in the ad account's currency, such as "$100 daily", while following the schema's units in tool inputs.
 
-The server exposes a small **meta-tool surface** — you don't call 300 tools directly, you discover them at runtime:
+Operation IDs are inputs to the execution tools, not standalone tools. This flow also applies to prerequisite operations such as account selection and report-field listing.
 
-| Tool | Purpose |
-|------|---------|
-| `find_operations` | Search the operation registry by intent. Always step 1. Each result includes `requires_approval: true|false`. |
-| `get_operation_inputs` | Get the full input schema (required + optional, types, examples) for an operation. Always step 2. Never guess shapes. |
-| `run_operation` | Execute an operation with `requires_approval: false`. No confirmation needed. |
-| `run_write_operation` | Execute an operation with `requires_approval: true`. **Always** confirm with the user first (see `safe-write-operations` skill). |
-| `list_connections` | List the user's authenticated logins per platform. Rarely needed — see Cross-cutting rules. |
-| `get_file_url` | Get a signed URL for a file stored in Markifact. |
-| `read_file` | Read the contents of a file the user uploaded or that an op produced. |
-| `upload_media` | Upload an **image or video** as a creative asset (e.g. for a Meta ad image, Google Ads asset, etc.). Only images and videos — no documents or other file types. |
+For reports, resolve account names through the platform's account-selection operation, using substring matches. Discover its report-field operation to check metric and dimension names; never guess them. Resolve the date range before execution. Prefer `gads_get_report` for Google Ads and use `gads_run_gaql_query` for advanced or unsupported reporting queries, after discovery and inspection.
 
-## The discover → inspect → run pattern
+## Connections and accounts
 
-Every workflow follows the same three steps:
+A **connection** is a saved, authenticated link between a Markifact workspace and an external platform, such as Google Ads or Meta Ads. It gives operations access through a particular platform login or set of credentials. Connecting Markifact to your AI assistant does not itself connect those external platforms.
 
-1. **Discover** — call `find_operations` with the user's intent in plain English (e.g. `"create google search campaign"`, `"replace meta ad creative"`). Returns matching operation IDs, descriptions, and a `requires_approval` flag.
-2. **Inspect** — call `get_operation_inputs` with the operation ID to see exact required fields. **Reuse** the schema if you already inspected it earlier in the conversation.
-3. **Run** — dispatch by the `requires_approval` flag from step 1: `false` → `run_operation` (no confirmation needed); `true` → `run_write_operation` (only after the four-step protocol in `safe-write-operations`). Connections (logins) are auto-resolved — only pass `connection_id` if you've already called `list_connections` because the user has multiple connections on the platform.
+Users create and manage connections on the [Connections page](https://www.markifact.com/app/connections): choose a platform, add a connection, and complete its sign-in and authorization flow or enter credentials there when required. Direct users to this page to update, reconnect, or remove connections. `list_connections` only lists saved connections; it does not create or edit them. Keep credential entry in Markifact's connection flow.
 
-**Never** invent operation IDs. **Never** guess input field names. Always discover and inspect first.
+A connection is different from a platform account. For example, one Google Ads connection may provide access to several ad accounts. `connection_id` selects the saved login; account, customer, and property IDs are separate inputs selecting resources accessible through it.
 
-## Operation naming conventions (use as discovery hints, not direct calls)
+Connections usually resolve automatically when `connection_id` is omitted. Use `list_connections` when the user wants a specific saved login or has multiple connections for the same platform; optionally filter by `connection_type`, such as `gads` or `meta_ads`. Results include `id`, `type`, and `display_name`. Pass the selected `id` as `connection_id` and reuse it throughout the task. Discover the platform's account-selection operation when the intended account ID is unknown.
 
-- `gads_*` — Google Ads
-- `meta_ads_*` — Meta (Facebook / Instagram)
-- `ga4_*` — Google Analytics 4
-- `gsc_*` — Google Search Console
-- `gmc_*` — Google Merchant Center
-- `tiktok_ads_*`, `linkedin_ads_*`, `pinterest_ads_*`, `snapchat_ads_*`, `reddit_ads_*`, `microsoft_ads_*`, `amazon_ads_*`
-- `shopify_*`, `klaviyo_*`, `hubspot_*`, `slack_*`
+If a connection is missing or expired, direct the user to the connections page. If the error identifies MCP connection restrictions, the user may need to update the server's allowed connections. Retry after access is restored.
 
-When you see a hint like "use `gads_create_campaign`" anywhere in instructions, that's a hint for what to discover — you still need to `find_operations` and `get_operation_inputs` before calling.
+## Files and uploads
 
-## Cross-cutting rules
+Some operations return a `file_id` and a small `data_preview` when the full dataset is too large to include in the response. The preview is only a sample; the file holds the full result.
 
-- **Account selection**: every reporting and management op needs the platform's `*_select_accounts` first. Account names are matched as a **substring** ("contains"), not exact. If multiple match, ask the user to disambiguate.
-- **Report fields**: never guess metric/dimension names. Call the platform's `*_list_report_fields` op first to get valid fields, then build the report.
-- **Dedicated ops over generic mutate**: on Google Ads, prefer dedicated ops like `gads_create_campaign`, `gads_update_ad_status` over `gads_mutate`. Only fall back to `gads_mutate` when no dedicated op exists for the action.
-- **Connection vs account** — these are two different things, do not confuse them:
-  - A **connection** is an OAuth login (e.g. `user1@example.com` connected to Google). One connection can have access to many ad accounts under that login.
-  - An **account** is the actual ad account inside the platform (e.g. one specific Google Ads CID, one Meta ad account). You pick it via the platform's `*_select_accounts` op.
-- **Connections are auto-resolved.** Ops route to the user's default workspace connection automatically. **Do nothing** about connections in the normal case. Only call `list_connections` if (a) the user has multiple connections on the platform and didn't name one, (b) the user explicitly asks to use a specific connection / login, or (c) an op fails with a connection-not-found / auth error.
-- **Accounts are not auto-resolved.** You always need to call the platform's `*_select_accounts` op (substring match on name) before any account-scoped op. If multiple accounts match, ask the user to disambiguate.
+- **Inspect:** Call `read_file` directly with the returned `file_id`. It returns numbered text lines for JSON, CSV, logs, and similar files. Use `offset` and `limit` to inspect additional sections.
+- **Reuse:** Pass the exact file ID inside double braces in another operation's input, for example `{"data": "{{file-xe3fw}}"}`. Markifact loads the full contents automatically: JSON becomes an object or list, CSV/XLSX becomes rows, other binary files become bytes, and in text fields such as `image_url` or `video_url` an image, video or audio file becomes its file URL. No manual copying or parsing is needed.
+- **Open or share:** Call `get_file_url` with the full returned filename, including its extension when present. It provides a directly accessible signed link valid for one hour. Share the exact URL as a Markdown link or image, rather than a raw file ID or placeholder. Use the URL for operation fields that expect a URL. An operation's `file_url` may instead require Markifact login.
+- **Upload media:** Call `upload_media` when the user needs to supply an image or video, such as ad creative. Pass the returned media URL to a later operation that accepts it. This tool supports images and videos only.
 
-## Reporting workflow
+Summarize results and any failures. If a write's outcome is uncertain, check the resulting state before retrying to avoid duplicates.
 
-Reporting is uniform across every platform (GA4, Google Ads, Meta Ads, GSC, GMC, TikTok, etc.) and always takes the same three steps:
+## Report feedback
 
-1. **`*_select_accounts`** — resolve the account ID from the user's account name (substring match). Skip if the user already gave you an exact ID.
-2. **`*_list_report_fields`** — fetch valid metric and dimension names. Never guess field names; they vary per platform and per report type.
-3. **`*_get_report`** — run the report with the resolved account ID, validated fields, and the date range.
+If you find a likely Markifact bug, missing capability, or product limitation after discovery, explain it and offer to report it. Do not report third-party platform errors, policies, rate limits, or user configuration as Markifact bugs.
 
-You can pull multiple accounts in one report — either aggregated, or split by account by adding the account dimension.
-
-## Working with files
-
-- **From an op output**: ops may return a `file_id` (often when a result is too large to inline). Use `get_file_url(file_id)` to get a shareable URL, then embed in your reply with Markdown: `![chart](url)` for images, `[name](url)` for other files. Use `read_file(file_id)` to inspect contents yourself.
-- **Sharing files with the user**: never paste raw `file_id` values. Always go through `get_file_url` and embed via Markdown.
-- **Uploading new media**: call `upload_media` to let the user upload an image or video for use as a creative asset (e.g. Meta ad image, Google Ads asset). Images and videos only — no documents.
-- **Passing a file to another op**: if an op expects a file as input, pass the `file_id` it returned earlier. If an op expects a URL, pass the full URL from `get_file_url`, not the raw `file_id`.
-
-## Errors
-
-- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
-- "Operation requires approval" → see `safe-write-operations` skill; never bypass.
-- Validation error → re-fetch schema with `get_operation_inputs`, fix payload, re-confirm with user before retrying.
-
-## Security & Privacy
-
-- **No local credential storage.** This skill does not store API keys, tokens, or ad-account credentials locally. Authentication is handled entirely through OAuth 2.1 with PKCE via the [Markifact](https://www.markifact.com) web app — tokens are stored server-side, encrypted at rest.
-- **OAuth scopes are least-privilege.** Each ad-platform connection requests only the scopes needed for campaign management and reporting. You can review and revoke access at any time from your ad-platform settings (Google, Meta, LinkedIn, TikTok, Microsoft, Amazon, Pinterest, Snapchat, Reddit) or from [www.markifact.com/app/connections](https://www.markifact.com/app/connections).
-- **Per-account isolation.** Every account-scoped op requires explicit `*_select_accounts` resolution; no cross-account writes.
-- **Write operations require explicit approval.** Any op with `requires_approval: true` goes through the four-step protocol in the `safe-write-operations` skill — plain-English statement, blast-radius disclosure, explicit user confirmation, post-execution verification. The agent never spends money or mutates a live campaign without a yes.
-- **Read-only by default.** Reporting, audits, and discovery (`find_operations`, `get_operation_inputs`, `*_get_report`) are read-only. Write operations (create, update, pause, resume, delete) require user confirmation every time.
-- **No automatic destructive defaults.** Prefer pause/disable over delete; budget changes >50% require an extra confirmation; never batch more than 5 writes without re-confirming.
-- **Open source skill + plugin code.** The MCP client plugins, slash commands, and these skills are public at <https://github.com/markifact/markifact-mcp> for code audit.
-- **Privacy policy.** Full data handling, retention, and deletion policies: <https://www.markifact.com/privacy-policy>. See also [SECURITY.md](https://github.com/markifact/markifact-mcp/blob/main/SECURITY.md) and [TERMS.md](https://github.com/markifact/markifact-mcp/blob/main/TERMS.md).
-
-### safe-write-operations
-
-
-# Safe write operations
-
-Calls to `run_write_operation` can **spend money, pause campaigns, change budgets, edit live creatives, send emails, or charge customers**. Treat every one as a production change.
-
-## When this protocol applies
-
-The trigger is the **`requires_approval: true`** flag on the operation in the `find_operations` response. If `requires_approval: true`, you **must** use `run_write_operation` and **must** follow the four-step protocol below. If `requires_approval: false`, use `run_operation` and skip this protocol — no confirmation needed.
-
-## The four-step write protocol
-
-**Always** follow this exact sequence before calling `run_write_operation`:
-
-1. **State the change in plain English.** Include the platform, account, object name/ID, and what will change. Example:
-   > "I'm about to **pause** the Google Ads campaign **'Brand — US Search'** (ID `1234567890`) in account **Acme US (MCC 999-888-7777)**. This will stop spend immediately."
-2. **State the blast radius.** What spend, traffic, revenue, or audience is affected? Pull a quick number from `run_operation` if you don't know.
-3. **Ask for explicit confirmation.** Wait for a yes. "Looks good", "go ahead", or "do it" all count. Anything ambiguous = ask again.
-4. **Execute, then verify.** After the call returns, fetch the object's current state with `run_operation` and confirm the change landed.
-
-## Hard rules
-
-- **Never batch more than 5 write operations without re-confirming.** If a workflow needs 20 pauses, do the first 5, summarise, ask "continue with the next batch?".
-- **Never delete** unless the user said "delete" (not "remove", not "pause"). Prefer pause/disable over delete every time.
-- **Never change budgets by more than 50%** in a single call without an extra confirmation step. Big budget moves are easy to fat-finger.
-- **Never run a write operation immediately after a model-invoked discovery.** The user must have asked for the change in their own words first.
-- **Never assume a connection.** If the user has multiple Google Ads accounts and didn't specify, ask.
-
-## Always check before executing
-
-- **"Will this reset learning?"** On Meta, budget shifts > 20%, audience changes > 10%, placement changes, optimization-event changes, and major creative swaps reset the ad set's learning phase (~7 days of degraded performance). On Google Ads, switching bid strategies resets learning (~1–2 weeks). Warn the user explicitly when a planned change will trigger a reset.
-- **"Does this change require fresh ID lookup?"** Structural changes (creating a new RSA, replacing a Meta creative, creating a new ad set) return new IDs. Don't reuse stale IDs from earlier in the conversation after a structural change — re-fetch.
-- **"Is there a dedicated op for this?"** On Google Ads, `gads_mutate` is the last-resort generic. If a dedicated op exists (e.g. `gads_update_campaign_budget`), use it — clearer intent, better validation, fewer footguns.
-
-## When `run_write_operation` errors
-
-- Auth error → user must reconnect at <https://www.markifact.com/app/connections>. Stop, don't retry.
-- Validation error → re-fetch the operation schema with `get_operation_inputs`, fix the payload, ask the user to confirm the corrected call before retrying.
-- Rate limit / quota → back off, do not retry in a loop.
+Call `report_markifact_feedback` only when the user asks you to submit feedback or accepts your offer. Supply `category` (`bug`, `feature_request`, `improvement`, or `other`), a concise English `title` and `description`, `impact` (`low`, `medium`, or `high`), and relevant `operation_ids` when known. Describe expected versus actual behavior and user impact using minimal non-sensitive evidence. Exclude credentials, raw payloads, and unrelated customer data. Confirm submission after the tool reports success.
 
 ---
 ## Workflows
@@ -369,7 +279,7 @@ Anything else (deleting + recreating the ad) destroys learning, frequency cappin
 6. **Build a diff preview before executing.** Show the user a table of every ad with old → new for each changed field. Wait for explicit confirmation. Then run all replaces, batched into a single `request_human_approval` if approval is required.
 7. **Confirm**: count succeeded, count failed (with reason), list of new `creative_id`s.
 
-Use `safe-write-operations` for steps 5c, 5d, and 6.
+Steps 5c, 5d, and 6 are writes: confirm with the user before every `run_write_operation`.
 
 ## Fresh media (image/video the user wants to swap in)
 
@@ -448,7 +358,7 @@ If the user gave a brief in the slash argument, parse it first and only ask for 
 10. **Add account-level brand-protection negatives** (competitor names if any) and obvious junk negatives (`free`, `jobs`, `careers`, `download`, `crack`, etc. — adjust to vertical) via `gads_add_negative_keywords_to_campaigns`.
 11. **Confirm to user**: campaign ID, ad group ID, ad strength, keyword count, link to review in Google Ads UI. Remind they're paused.
 
-Use the `safe-write-operations` skill for every step from #5 onward — each is a write. Batch into a single approval request when possible.
+Every step from #5 onward is a write: confirm with the user before every `run_write_operation`. Batch into a single approval request when possible.
 
 ## Platform-specific rules the model MUST respect
 
@@ -517,7 +427,7 @@ Stand up a production-ready Meta campaign with one ad set and one or more ad var
 8. **Create ad(s)** — pick the right `meta_ads_create_*_ad` op for the format. Status=PAUSED.
 9. **Confirm** to user with IDs + reminder to review and unpause.
 
-Use `safe-write-operations` for every create call.
+Every create call is a write: confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 
@@ -588,7 +498,7 @@ Stand up a complete PMax campaign with one fully-loaded asset group and (when ap
 11. **Listing groups** (Sales only) — `gads_update_listing_groups` to scope which products PMax can advertise. Default: all products. Refine if the user wants brand/category exclusions.
 12. **Confirm**: campaign id, asset group id, asset count by type, audience signal count, listing scope. Remind user it's paused.
 
-Use the `safe-write-operations` skill from step 5 onward.
+From step 5 onward, confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 
@@ -672,7 +582,7 @@ Pull the search-terms report, identify spend that isn't producing, group it inte
    - Ad-group-level batch → `gads_add_negative_keywords_to_ad_groups`.
 10. **Confirm**: count by scope, total estimated spend blocked.
 
-Use `safe-write-operations` for steps 9 onward.
+From step 9 onward, confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 
@@ -769,7 +679,7 @@ Identify creative that's stopped performing, pause it, and ship variants. Preser
    b. For old ads: pause via `gads_update_ad_status` once the new variant is live (don't pause until the replacement exists).
 9. **Confirm.**
 
-Use `safe-write-operations` for every status flip and every create. Batch into one approval where possible.
+Every status flip and every create is a write: confirm with the user before every `run_write_operation`. Batch into one approval where possible.
 
 ## Platform-specific rules the model MUST respect
 

@@ -36,7 +36,7 @@ Stand up a complete PMax campaign with one fully-loaded asset group and (when ap
 11. **Listing groups** (Sales only) — `gads_update_listing_groups` to scope which products PMax can advertise. Default: all products. Refine if the user wants brand/category exclusions.
 12. **Confirm**: campaign id, asset group id, asset count by type, audience signal count, listing scope. Remind user it's paused.
 
-Use the `safe-write-operations` skill from step 5 onward.
+From step 5 onward, confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 

@@ -44,7 +44,7 @@ Pull the search-terms report, identify spend that isn't producing, group it inte
    - Ad-group-level batch → `gads_add_negative_keywords_to_ad_groups`.
 10. **Confirm**: count by scope, total estimated spend blocked.
 
-Use `safe-write-operations` for steps 9 onward.
+From step 9 onward, confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 

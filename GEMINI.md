@@ -19,7 +19,7 @@ Never invent operation IDs. Never guess input field names. Always:
 
 1. `find_operations("plain english intent")` — read the `requires_approval` flag on each result.
 2. `get_operation_inputs(chosen_id)`.
-3. Dispatch by the flag: `requires_approval: false` → `run_operation(...)`; `requires_approval: true` → `run_write_operation(...)` after the four-step safety protocol.
+3. Dispatch by the flag: `requires_approval: false` → `run_operation(...)`; `requires_approval: true` → `run_write_operation(...)` after the user confirms the change.
 
 ## Connection vs account
 

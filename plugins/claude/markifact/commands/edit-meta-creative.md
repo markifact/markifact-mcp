@@ -54,7 +54,7 @@ Anything else (deleting + recreating the ad) destroys learning, frequency cappin
 6. **Build a diff preview before executing.** Show the user a table of every ad with old → new for each changed field. Wait for explicit confirmation. Then run all replaces, batched into a single `request_human_approval` if approval is required.
 7. **Confirm**: count succeeded, count failed (with reason), list of new `creative_id`s.
 
-Use `safe-write-operations` for steps 5c, 5d, and 6.
+Steps 5c, 5d, and 6 are writes: confirm with the user before every `run_write_operation`.
 
 ## Fresh media (image/video the user wants to swap in)
 

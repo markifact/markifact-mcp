@@ -57,7 +57,7 @@ Identify creative that's stopped performing, pause it, and ship variants. Preser
    b. For old ads: pause via `gads_update_ad_status` once the new variant is live (don't pause until the replacement exists).
 9. **Confirm.**
 
-Use `safe-write-operations` for every status flip and every create. Batch into one approval where possible.
+Every status flip and every create is a write: confirm with the user before every `run_write_operation`. Batch into one approval where possible.
 
 ## Platform-specific rules the model MUST respect
 

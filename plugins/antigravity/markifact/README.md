@@ -15,8 +15,7 @@ On first use Antigravity opens Markifact's sign-in in your browser (OAuth with P
 | Skill | Role |
 |---|---|
 | `/markifact-agent` | The performance-marketer operating protocol: discover, inspect, resolve account, run, verify |
-| `/markifact-overview` | What the MCP server exposes and how to navigate its 1000+ operations |
-| `/safe-write-operations` | The confirmation protocol for anything that changes an account |
+| `/getting-started` | How to find, inspect and run operations, pick connections and accounts, work with files, and confirm before any change |
 | `/launch-google-search`, `/launch-pmax`, `/launch-meta-campaign` | Full campaign builds, created paused for review |
 | `/edit-meta-creative`, `/rotate-creative` | Creative changes and rotation |
 | `/negative-keyword-sweep` | Find wasted spend in search terms and add negatives |

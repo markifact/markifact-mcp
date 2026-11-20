@@ -37,7 +37,7 @@ If the user gave a brief in the slash argument, parse it first and only ask for 
 10. **Add account-level brand-protection negatives** (competitor names if any) and obvious junk negatives (`free`, `jobs`, `careers`, `download`, `crack`, etc. — adjust to vertical) via `gads_add_negative_keywords_to_campaigns`.
 11. **Confirm to user**: campaign ID, ad group ID, ad strength, keyword count, link to review in Google Ads UI. Remind they're paused.
 
-Use the `safe-write-operations` skill for every step from #5 onward — each is a write. Batch into a single approval request when possible.
+Every step from #5 onward is a write: confirm with the user before every `run_write_operation`. Batch into a single approval request when possible.
 
 ## Platform-specific rules the model MUST respect
 

@@ -33,7 +33,7 @@ Stand up a production-ready Meta campaign with one ad set and one or more ad var
 8. **Create ad(s)** — pick the right `meta_ads_create_*_ad` op for the format. Status=PAUSED.
 9. **Confirm** to user with IDs + reminder to review and unpause.
 
-Use `safe-write-operations` for every create call.
+Every create call is a write: confirm with the user before every `run_write_operation`.
 
 ## Platform-specific rules the model MUST respect
 

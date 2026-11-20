@@ -29,7 +29,7 @@ On first use Claude opens Markifact's sign-in in your browser (OAuth with PKCE a
 | Component | Role |
 |---|---|
 | `performance-marketer` agent | The operating protocol: discover, inspect, resolve account, run, verify |
-| `markifact-overview`, `safe-write-operations` skills | What the MCP server exposes, and the confirmation protocol for anything that changes an account |
+| `getting-started` skill | How to find, inspect and run operations, pick connections and accounts, work with files, and confirm before any change |
 | `/launch-google-search`, `/launch-pmax`, `/launch-meta-campaign` | Full campaign builds, created paused for review |
 | `/edit-meta-creative`, `/rotate-creative` | Creative changes and rotation |
 | `/negative-keyword-sweep` | Find wasted spend in search terms and add negatives |
